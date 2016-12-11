@@ -8,6 +8,7 @@
             "**/App.Metrics.Extensions.Middleware/project.json",
             "**/App.Metrics.Extensions.Reporting.Console/project.json",
             "**/App.Metrics.Extensions.Reporting.TextFile/project.json",
+            "**/App.Metrics.Extensions.Reporting.InfluxDB/project.json",
             "**/App.Metrics.Formatters.Json/project.json"
           ],
           "exclude": [
@@ -15,7 +16,7 @@
             "**/bin/**",
             "_site/**"
           ],
-          "cwd": "../src"
+          "cwd": "../AppMetrics/src"
         }
       ],
       "dest": "api"

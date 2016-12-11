@@ -41,3 +41,11 @@ The `App.Metrics.Extensions.Reporting.TextFile` package is an App Metrics report
 ```console
 nuget install App.Metrics.Extensions.Reporting.TextFile
    ```
+
+----------
+
+The `App.Metrics.Extensions.Reporting.InfluxDB` package is an App Metrics report provider which will flush metrics to a [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) at a specified interval.
+
+```console
+nuget install App.Metrics.Extensions.Reporting.InfluxDB
+   ```   
