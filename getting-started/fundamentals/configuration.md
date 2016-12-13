@@ -22,9 +22,16 @@ Below is an example `Startup.cs` using `appsettings.json` as a configuration sou
 
 And the `appsettings.json` file
 
-[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/AppMetricsOptions.json)]    
+[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/AppMetricsOptions.json)]
+
+## Changes options via an options delegate and configuration source
+
+In cases where it's required to have some settings in a configuration file but others in code, it's possible to provide both an options delegate and configuration source, where options are applied in order they are registered. For example, in the following code snippet any options registered via the configuration section will override those registered in code. The reverse can also be applied by changing the order of the options delegate and configuration source on the `AddMetrics` method.
+
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsAndIConfiguration.cs?highlight=5,6,7,8)]
 
 ## Next Steps
 
 - [AspNet Core Middleware Configuration Options](middleware-configuration.md)
+- [Organizing Metrics](organizing-metrics.md)
 - [Sample Applications](../../samples/index.md)
