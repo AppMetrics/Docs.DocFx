@@ -43,6 +43,10 @@ Tags can also be defined for all Metrics globally which is useful for tagging by
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptions.cs?highlight=8)]
 
+App Metrics provides an extension method on the AppMetricsOptions delegate passing some envrionment information that can be used to set global tags such as the machine name, assembly version etc.
+
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsEnvTags.cs?highlight=7,8,9,10,11,12,13)]
+
 ### Filtering in process by Tag Keys
 
 The [DefaultMetricsFilter](../../api/App.Metrics.DefaultMetricsFilter.html) can be used to filter Metrics by a Tag Keys. This would be useful if we only wanted to report on a particular Metrics Tags.
