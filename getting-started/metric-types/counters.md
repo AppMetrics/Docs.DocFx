@@ -24,8 +24,16 @@ We can solve this by resetting the counter each time we flush our metrics to a d
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Metric.Code.Snippets/Counters.cs?start=28&end=28)]
 
+### Counter Reporting Options
+
+The `CounterOptions` provides some settings to control what is reported and whether or not to reset the counter and it's set items on reporting. When choosing to reset a counter when reporting, keep in mind that if mulitple reporters are configured the first reporter which flushes metrics will reset the count.
+
+- **ResetOnReporting**: Resets the count and the counter's, set items when the first configured reporter flushes metrics. This would then cause set item percentages to also be reset.
+- **ReportSetItems**: Determines whether or not to report the counter's set item when flushing metrics via a reporter.
+- **ReportItemPercentages**: Determines whether or not to report the counter's set item when flushing metrics via a reporter.
+
 > [!NOTE]
-> At the moment the above would have to apply for all counters within the reporter. The next release will provide a specific counter type which will be reset after reporting.
+> To visualize counter's setup [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/) and [Grafana](https://grafana.net/) on your local environment, grab one of the sample Grafana dashboards from the repo to import and run one of the App Metrics sample applications.
 
 ## Related Docs
 
