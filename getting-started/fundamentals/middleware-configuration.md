@@ -19,17 +19,24 @@ These configuration options include:
 
 ## Changing options using `Action<AspNetMetricsOptions>`
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetOptions.cs?highlight=8)]      	     
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetOptions.cs?highlight=10)]      	     
 
 ## Changing options using `Microsoft.Extensions.Configuration.IConfiguration`
 
 Below is an example `Startup.cs` using `appsettings.json` as a configuration source:
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetIConfiguration.cs?highlight=20)]      	     
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetIConfiguration.cs?highlight=22)]      	     
 
 And the `appsettings.json` file
 
 [!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/AspNetOptions.json)]
+
+> [!NOTE]
+> To have routes measured a resource filter is required to extract the route template of each request, add the resource filter when configuring Mvc options i.e.
+> 
+> ```csharp
+> services.AddMvc(options => options.AddMetricsResourceFilter());
+>  ```
 
 ## Next Steps
 

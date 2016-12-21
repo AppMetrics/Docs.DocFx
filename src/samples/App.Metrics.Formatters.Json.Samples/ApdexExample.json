@@ -1,0 +1,15 @@
+{    
+    "apdexScores": [
+        {
+            "frustrating": 64,
+            "sampleSize": 198,
+            "satisfied": 58,
+            "score": 0.48,
+            "tolerating": 76,
+            "name": "Apdex",
+            "tags": {
+                "env": "stage"            
+            }
+        }
+    ]
+}

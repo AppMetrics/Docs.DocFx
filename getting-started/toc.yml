@@ -12,6 +12,8 @@
       href: fundamentals/organizing-metrics.md  
 - name: Metric Types  
   items:
+    - name: Apdex
+      href: metric-types/apdex.md
     - name: Gauges
       href: metric-types/gauges.md
     - name: Counters

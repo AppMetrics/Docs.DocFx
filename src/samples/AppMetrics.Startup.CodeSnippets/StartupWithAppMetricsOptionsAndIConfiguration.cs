@@ -2,6 +2,8 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddMvc(options => options.AddMetricsResourceFilter());
+        
         services.AddMetrics(options => {
                 options.DefaultContextLabel = "MyContext",
                 options.DefaultSamplingType = SamplingType.SlidingWindow;                        	

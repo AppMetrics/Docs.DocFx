@@ -10,7 +10,4 @@ The [sample console application](https://github.com/alhardy/AppMetrics/tree/mast
 
 ## Sample Grafana Dashboards
 
-The following dashboards can be downloaded an imported into Grafana, you can find the sample applications [here](../../samples/index.md)
-
-- Sample Console Application <a href="../../dashboards/App.Sample_influx_grphana.json" target="_blank">Dashbaord</a>
-- Sample REST Api <a href="#" target="_blank">Dashbaord</a> (TODO)
+The github repository contains sample dashboards which can be imported into Grafana, you can find the sample applications [here](../../samples/index.md)

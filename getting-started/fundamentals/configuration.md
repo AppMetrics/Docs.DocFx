@@ -12,7 +12,7 @@ These configuration options include:
 
 ## Changing options using `Action<AppMetricOptions>`
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptions.cs?highlight=5)]  
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptions.cs?highlight=5,7)]  
 
 ## Changing options using `Microsoft.Extensions.Configuration.IConfiguration`
 
@@ -28,7 +28,14 @@ And the `appsettings.json` file
 
 In cases where it's required to have some settings in a configuration file but others in code, it's possible to provide both an options delegate and configuration source, where options are applied in order they are registered. For example, in the following code snippet any options registered via the configuration section will override those registered in code. The reverse can also be applied by changing the order of the options delegate and configuration source on the `AddMetrics` method.
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsAndIConfiguration.cs?highlight=5,6,7,8)]
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsAndIConfiguration.cs?highlight=7,8,9,10)]
+
+> [!NOTE]
+> To have routes measured a resource filter is required to extract the route template of each request, add the resource filter when configuring Mvc options i.e.
+> 
+> ```csharp
+> services.AddMvc(options => options.AddMetricsResourceFilter());
+>  ```
 
 ## Next Steps
 
