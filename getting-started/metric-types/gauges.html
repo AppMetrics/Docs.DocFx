@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Gauges </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Gauges ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <h1 id="gauges">Gauges</h1>
+              
+<p>A Gauge is simply an action that returns the instantaneous measure of a value, where the value abitrarily increases and decreases, for example CPU usage.</p>
+<p>Gauges are ideal to use for measured values such as current memory usage, cpu usage, temperatures, disk space etc.</p>
+<h2 id="using-gauges">Using Gauges</h2>
+<pre><code class="lang-csharp" name="Main" highlight-lines="9">var processPhysicalMemoryGauge = new GaugeOptions
+{
+    Name = &quot;Process Physical Memory&quot;,
+    MeasurementUnit = Unit.Bytes
+} 
+
+var process = Process.GetCurrentProcess();
+
+_metrics.Gauge(MetricsRegistry.Gauges.TestGauge, () =&gt; process.WorkingSet64);
+</code></pre><p>Which for example when using the <a href="../intro.html#configuring-a-web-host">JSON formatter</a> would result in something similar to:</p>
+<pre><code class="lang-json" name="Main">{
+    &quot;context&quot;: &quot;Process&quot;,
+    &quot;gauges&quot;: [
+        {
+            &quot;value&quot;: 51683328,
+            &quot;name&quot;: &quot;Process Physical Memory&quot;,           
+            &quot;unit&quot;: &quot;bytes&quot;
+        }
+    ]
+}
+</code></pre><h3 id="derived-gauges">Derived Gauges</h3>
+<p>Derived Gauges allow you to derive a value from another Gauge and using a transformation, calculate the measurement.</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="12">var process = Process.GetCurrentProcess();
+
+var processPhysicalMemoryGauge = new GaugeOptions
+{
+    Name = &quot;Process Physical Memory (MB)&quot;,
+    MeasurementUnit = Unit.MegaBytes
+};
+
+var physicalMemoryGauge = new FunctionGauge(() =&gt; process.WorkingSet64);
+
+_metrics.Advanced.Gauge(MetricsRegistry.Gauges.DerivedGauge,
+        () =&gt; new DerivedGauge(physicalMemoryGauge, g =&gt; g / 1024.0 / 1024.0));
+</code></pre><h3 id="ratio-gauges">Ratio Gauges</h3>
+<p>Ratio Gauges allow you to measure a Gauge with a measurement which is the ratio between two values.</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="16">var cacheHits = _metrics.Advanced.Meter(MetricsRegistry.Meters.CacheHits);
+var calls = _metrics.Advanced.Timer(MetricsRegistry.Timers.DatabaseQueryTimer);
+
+var cacheHit = Rnd.Next(0, 2) == 0;
+
+using (calls.NewContext())
+{
+    if (cacheHit)
+    {
+        cacheHits.Mark();
+    }
+
+    Thread.Sleep(cacheHit ? 10 : 100);
+}
+
+_metrics.Advanced.Gauge(MetricsRegistry.Gauges.CacheHitRatioGauge, () =&gt; new HitRatioGauge(cacheHits, calls, m =&gt; m.OneMinuteRate));
+</code></pre><h2 id="related-docs">Related Docs</h2>
+<ul>
+<li><a href="../intro.html#measuring-application-metrics">Getting Started</a></li>
+<li><a href="../fundamentals/configuration.html">Configuration</a></li>
+</ul>
+
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/blob/master/getting-started/metric-types/gauges.md/#L1" class="contribution-link">Edit this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace App.Metrics
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace App.Metrics
+   ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content">
+              
+              <h1 id="App_Metrics" data-uid="App.Metrics">Namespace App.Metrics
+              </h1>
+              <div class="markdown level0 summary"></div>
+              <div class="markdown level0 conceptual"></div>
+              <div class="markdown level0 remarks"></div>
+                <h3 id="classes">Classes
+              </h3>
+                  <h4><a class="xref" href="App.Metrics.ApdexHealthCheck.html#App_Metrics_ApdexHealthCheck">ApdexHealthCheck</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.ApdexScore.html#App_Metrics_ApdexScore">ApdexScore</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.Counter.html#App_Metrics_Counter">Counter</a></h4>
+                  <section><p>
+    Counter metric types track how many times something happens, they can incremented or decremented.
+</p>
+<p>
+    Counters represent a 64-bit integer value.
+</p>
+<p>
+    Counters provide the ability to track a counter for each item in a finite set, as well as tracking a per item
+    count the overall percentage is also recorded. This is useful for example if we needed to track the total
+    number of emails sent but also the count of each type of emails sent.
+</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Counter.SetItem.html#App_Metrics_Counter_SetItem">Counter.SetItem</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.DefaultMetricsFilter.html#App_Metrics_DefaultMetricsFilter">DefaultMetricsFilter</a></h4>
+                  <section><p>Provides the ability to filter metrics by Context, Type, Name etc.</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Gauge.html#App_Metrics_Gauge">Gauge</a></h4>
+                  <section><p>
+    Gauge metric types measure the value of a particular thing at a particular time, it represents an instantaneous
+    value.
+</p>
+<p>
+    Gauges represent a double value.
+</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.GlobalMetricTags.html#App_Metrics_GlobalMetricTags">GlobalMetricTags</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.HealthCheckFactoryExtensions.html#App_Metrics_HealthCheckFactoryExtensions">HealthCheckFactoryExtensions</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.HealthStatusData.html#App_Metrics_HealthStatusData">HealthStatusData</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.Histogram.html#App_Metrics_Histogram">Histogram</a></h4>
+                  <section><p>
+    Histogram metric types track the statistical distribution of a set of values. They allow you to measure the
+    min, mean, max, standard deviation of values and also quantiles such as the median, 95th percentile, 98th
+    percentile etc.
+</p>
+<p>
+    To avoid unbound memory usage, the histogram values are genreated from a <a class="xref" href="App.Metrics.Sampling.Interfaces.IReservoir.html#App_Metrics_Sampling_Interfaces_IReservoir">IReservoir</a> of values.
+    This is done by sampling the data as it goes through by maintaining a small manageable  reservoir which is
+    statistically representative of the data stream as a whole, allowing us to quickly calculate the quantiles
+    which are valid approximations of the actual quantiles. <a href="https://en.wikipedia.org/wiki/Reservoir_sampling">https://en.wikipedia.org/wiki/Reservoir_sampling</a>
+</p>
+<p>
+    Histograms also allow us to track user values, where for all user values provided the min, max and last user
+    value values is recorded.
+</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Meter.html#App_Metrics_Meter">Meter</a></h4>
+                  <section><p>
+    Meter metric types are increment-only counters that also measure the rate of events over time.
+</p>
+<p>
+    The mean rate is recorded, but is only generally used for trivia as it represents the total rate for the
+    lifetime of your application, not offering a sense of recency.
+</p>
+<p>
+    Other than the mean rate, meters also are recorded using three different exponentially-weighted moving average
+    rates, 1 min, 5 min and 15 min moving averages which do provide a sense of recency.
+</p>
+<p>
+    Meters also provide the ability to track the rate for each item in a finite set, as well as tracking a per item
+    rate the overall percentage is also recorded. This is useful for example if we needed to track the total
+    number of emails sent but also the rate at which each type of email is sent.
+</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Meter.SetItem.html#App_Metrics_Meter_SetItem">Meter.SetItem</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.Metric.html#App_Metrics_Metric">Metric</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.MetricData.html#App_Metrics_MetricData">MetricData</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.MetricItem.html#App_Metrics_MetricItem">MetricItem</a></h4>
+                  <section><p>
+    Metric items can be used with <a class="xref" href="App.Metrics.Counter.html#App_Metrics_Counter">Counter</a> or <a class="xref" href="App.Metrics.Meter.html#App_Metrics_Meter">Meter</a> <a class="xref" href="App.Metrics.MetricType.html#App_Metrics_MetricType">MetricType</a>s
+</p>
+<p>
+    They provide the ability to track either a count or rate for each item in a counters or meters finite set
+    respectively. They also track the overall percentage of each item in the set.
+</p>
+<p>
+    This is useful for example if we needed to track the total number of emails sent but also the count of each
+    type of emails sent or The total rate of emails sent but also the rate at which type of email was sent.
+</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.MetricsAppEnvironment.html#App_Metrics_MetricsAppEnvironment">MetricsAppEnvironment</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.MetricsContext.html#App_Metrics_MetricsContext">MetricsContext</a></h4>
+                  <section><p>MetricsContext&#39;s are a way of grouping metrics withing a context, for example we can record all database related
+metrics in a &quot;Application.Database&quot; Context. Metric names can be duplicated across contexts</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.MetricTags.html#App_Metrics_MetricTags">MetricTags</a></h4>
+                  <section><p>Collection of tags that can be attached to a metric.</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.TagKeyValueFilter.html#App_Metrics_TagKeyValueFilter">TagKeyValueFilter</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.Timer.html#App_Metrics_Timer">Timer</a></h4>
+                  <section><p>
+    Timer metric types are essentially a special case of <a class="xref" href="App.Metrics.Timer.html#App_Metrics_Timer_Histogram">Histogram</a>
+</p>
+<p>
+    As well as providing a <a class="xref" href="App.Metrics.Timer.html#App_Metrics_Timer_Histogram">Histogram</a> of the duration of a type of event, timers also provide a
+<a class="xref" href="App.Metrics.Meter.html#App_Metrics_Meter">Meter</a> of the rate of the events occurrence.
+</p>
+<p>
+    Like <a class="xref" href="App.Metrics.Timer.html#App_Metrics_Timer_Histogram">Histogram</a>s, timers also allow us to track user values, where for all user values provided
+    the min, max and last user value values is recorded.
+</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Timer.HistogramData.html#App_Metrics_Timer_HistogramData">Timer.HistogramData</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.Timer.RateData.html#App_Metrics_Timer_RateData">Timer.RateData</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.TimeUnitExtensions.html#App_Metrics_TimeUnitExtensions">TimeUnitExtensions</a></h4>
+                  <section></section>
+                <h3 id="structs">Structs
+              </h3>
+                  <h4><a class="xref" href="App.Metrics.ApdexContext.html#App_Metrics_ApdexContext">ApdexContext</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.TimerContext.html#App_Metrics_TimerContext">TimerContext</a></h4>
+                  <section><p>This struct is meant to be returned by the timer.NewContext() method and is intended to be used inside a using
+statement:</p>
+<p><pre><code>using(timer.NewContext())
+{
+ExecuteMethodThatNeedsMonitoring();
+}</code></pre></p>
+<remarks>
+    Double disposing the instance, or a copy of the instance (since it is a struct) will cause the timer to record
+    wrong values.
+    Stick to directly passing it to the using() statement.
+</remarks>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Unit.html#App_Metrics_Unit">Unit</a></h4>
+                  <section></section>
+                <h3 id="interfaces">Interfaces
+              </h3>
+                  <h4><a class="xref" href="App.Metrics.ICounter.html#App_Metrics_ICounter">ICounter</a></h4>
+                  <section><p>A counter is a simple incrementing and decrementing 64-bit integer.
+Each operation can also be applied to a item from a set and the counter will store individual count for each set
+item.</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.IHealthCheckFactory.html#App_Metrics_IHealthCheckFactory">IHealthCheckFactory</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.IHistogram.html#App_Metrics_IHistogram">IHistogram</a></h4>
+                  <section><p>A Histogram measures the distribution of values in a stream of data: e.g., the number of results returned by a
+search.</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.IMeter.html#App_Metrics_IMeter">IMeter</a></h4>
+                  <section><p>A meter measures the rate at which a set of events occur, in a few different ways.
+The mean rate is the average rate of events. It’s generally useful for trivia,
+but as it represents the total rate for your application’s entire lifetime (e.g., the total number of requests
+handled,
+divided by the number of seconds the process has been running), it doesn’t offer a sense of recency.
+Luckily, meters also record three different exponentially-weighted moving average rates: the 1-, 5-, and 15-minute
+moving averages.</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.IMetrics.html#App_Metrics_IMetrics">IMetrics</a></h4>
+                  <section><p>Provides access to record application metrics.</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.IMetricsEnvironment.html#App_Metrics_IMetricsEnvironment">IMetricsEnvironment</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.IMetricsFilter.html#App_Metrics_IMetricsFilter">IMetricsFilter</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.IResetableMetric.html#App_Metrics_IResetableMetric">IResetableMetric</a></h4>
+                  <section><p>Indicates a metric&#39;s ability to be reset. Reseting a metric clear all currently collected data.</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.ITimer.html#App_Metrics_ITimer">ITimer</a></h4>
+                  <section><p>A timer is basically a histogram of the duration of a type of event and a meter of the rate of its occurrence.</p>
+<a class="xref" href="App.Metrics.IHistogram.html#App_Metrics_IHistogram">IHistogram</a> and <a class="xref" href="App.Metrics.IMeter.html#App_Metrics_IMeter">IMeter</a>
+</section>
+                <h3 id="enums">Enums
+              </h3>
+                  <h4><a class="xref" href="App.Metrics.MetricType.html#App_Metrics_MetricType">MetricType</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.SamplingType.html#App_Metrics_SamplingType">SamplingType</a></h4>
+                  <section><p>Sampling avoids unbound memory usage, sampling is used to generate <a class="xref" href="App.Metrics.Histogram.html#App_Metrics_Histogram">Histogram</a>&#39;s from a reservoir of
+values</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.TimeUnit.html#App_Metrics_TimeUnit">TimeUnit</a></h4>
+                  <section></section>
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics.md&amp;value=---%0Auid%3A%20App.Metrics%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

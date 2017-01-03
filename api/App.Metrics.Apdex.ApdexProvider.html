@@ -1,0 +1,403 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ApdexProvider
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ApdexProvider
+   ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content">
+              
+              
+              <h1 id="App_Metrics_Apdex_ApdexProvider" data-uid="App.Metrics.Apdex.ApdexProvider">Class ApdexProvider
+              </h1>
+              <div class="markdown level0 summary"><p>The default <a class="xref" href="App.Metrics.Apdex.Interfaces.IApdexProvider.html#App_Metrics_Apdex_Interfaces_IApdexProvider">IApdexProvider</a> implementation which uses the specified</p>
+<p><a class="xref" href="App.Metrics.Sampling.Interfaces.IReservoir.html#App_Metrics_Sampling_Interfaces_IReservoir">IReservoir</a> to sample values in order to caclulate an apdex score</p>
+</div>
+              <div class="markdown level0 conceptual"></div>
+              <div class="inheritance">
+                <h5>Inheritance</h5>
+                  <div class="level0"><span class="xref">System.Object</span></div>
+                  <div class="level1"><span class="xref">ApdexProvider</span></div>
+              </div>
+              <div class="inheritedMembers">
+                <h5>Inherited Members</h5>
+                <div>
+                  <span class="xref">System.Object.Equals(System.Object)</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.GetHashCode()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.GetType()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.MemberwiseClone()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+                </div>
+                <div>
+                  <span class="xref">System.Object.ToString()</span>
+                </div>
+              </div>
+              <h6><strong>Namespace</strong>:App.Metrics.Apdex</h6>
+              <h6><strong>Assembly</strong>:App.Metrics.dll</h6>
+              <h5 id="App_Metrics_Apdex_ApdexProvider_syntax">Syntax</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public class ApdexProvider : IApdexProvider, IDisposable</code></pre>
+              </div>
+              <h3 id="constructors">Constructors
+              </h3>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider__ctor_App_Metrics_Sampling_Interfaces_IReservoir_.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider.%23ctor(App.Metrics.Sampling.Interfaces.IReservoir)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L28">View Source</a>
+              </span>
+              <a id="App_Metrics_Apdex_ApdexProvider__ctor_" data-uid="App.Metrics.Apdex.ApdexProvider.#ctor*"></a>
+              <h4 id="App_Metrics_Apdex_ApdexProvider__ctor_App_Metrics_Sampling_Interfaces_IReservoir_" data-uid="App.Metrics.Apdex.ApdexProvider.#ctor(App.Metrics.Sampling.Interfaces.IReservoir)">ApdexProvider(IReservoir)</h4>
+              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="App.Metrics.Apdex.ApdexProvider.html#App_Metrics_Apdex_ApdexProvider">ApdexProvider</a> class.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public ApdexProvider(IReservoir reservoir)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="App.Metrics.Sampling.Interfaces.IReservoir.html#App_Metrics_Sampling_Interfaces_IReservoir">IReservoir</a></td>
+                    <td><em>reservoir</em></td>
+                    <td><p>The reservoir used to sample values in order to caclulate an apdex score.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="App_Metrics_Apdex_ApdexProvider__ctor_App_Metrics_Sampling_Interfaces_IReservoir__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>The apdex T <span class="xref">App.Metrics.Internal.Constants.ReservoirSampling</span> value will be used</p>
+</div>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider__ctor_App_Metrics_Sampling_Interfaces_IReservoir_System_Double_.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider.%23ctor(App.Metrics.Sampling.Interfaces.IReservoir%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L38">View Source</a>
+              </span>
+              <a id="App_Metrics_Apdex_ApdexProvider__ctor_" data-uid="App.Metrics.Apdex.ApdexProvider.#ctor*"></a>
+              <h4 id="App_Metrics_Apdex_ApdexProvider__ctor_App_Metrics_Sampling_Interfaces_IReservoir_System_Double_" data-uid="App.Metrics.Apdex.ApdexProvider.#ctor(App.Metrics.Sampling.Interfaces.IReservoir,System.Double)">ApdexProvider(IReservoir, Double)</h4>
+              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="App.Metrics.Apdex.ApdexProvider.html#App_Metrics_Apdex_ApdexProvider">ApdexProvider</a> class.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public ApdexProvider(IReservoir reservoir, double apdexTSeconds)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="App.Metrics.Sampling.Interfaces.IReservoir.html#App_Metrics_Sampling_Interfaces_IReservoir">IReservoir</a></td>
+                    <td><em>reservoir</em></td>
+                    <td><p>The reservoir used to sample values in order to caclulate an apdex score.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Double</span></td>
+                    <td><em>apdexTSeconds</em></td>
+                    <td><p>The apdex t seconds used to calculate satisfied, tolerating and frustrating counts.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="methods">Methods
+              </h3>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider_Dispose.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L51">View Source</a>
+              </span>
+              <a id="App_Metrics_Apdex_ApdexProvider_Dispose_" data-uid="App.Metrics.Apdex.ApdexProvider.Dispose*"></a>
+              <h4 id="App_Metrics_Apdex_ApdexProvider_Dispose" data-uid="App.Metrics.Apdex.ApdexProvider.Dispose">Dispose()</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+              </div>
+              <h5 class="implements">Implements</h5>
+                  <div><span class="xref">System.IDisposable.Dispose()</span></div>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L64">View Source</a>
+              </span>
+              <a id="App_Metrics_Apdex_ApdexProvider_Dispose_" data-uid="App.Metrics.Apdex.ApdexProvider.Dispose*"></a>
+              <h4 id="App_Metrics_Apdex_ApdexProvider_Dispose_System_Boolean_" data-uid="App.Metrics.Apdex.ApdexProvider.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+              <div class="markdown level1 summary"><p>Releases unmanaged and - optionally - managed resources.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public void Dispose(bool disposing)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Boolean</span></td>
+                    <td><em>disposing</em></td>
+                    <td><p><code>true</code> to release both managed and unmanaged resources; <code>false</code> to release only
+unmanaged resources.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider_Finalize.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L45">View Source</a>
+              </span>
+              <a id="App_Metrics_Apdex_ApdexProvider_Finalize_" data-uid="App.Metrics.Apdex.ApdexProvider.Finalize*"></a>
+              <h4 id="App_Metrics_Apdex_ApdexProvider_Finalize" data-uid="App.Metrics.Apdex.ApdexProvider.Finalize">Finalize()</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">protected void Finalize()</code></pre>
+              </div>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider_GetSnapshot_System_Boolean_.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider.GetSnapshot(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L80">View Source</a>
+              </span>
+              <a id="App_Metrics_Apdex_ApdexProvider_GetSnapshot_" data-uid="App.Metrics.Apdex.ApdexProvider.GetSnapshot*"></a>
+              <h4 id="App_Metrics_Apdex_ApdexProvider_GetSnapshot_System_Boolean_" data-uid="App.Metrics.Apdex.ApdexProvider.GetSnapshot(System.Boolean)">GetSnapshot(Boolean)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public ApdexSnapshot GetSnapshot(bool resetReservoir = false)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Boolean</span></td>
+                    <td><em>resetReservoir</em></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="App.Metrics.Apdex.ApdexSnapshot.html#App_Metrics_Apdex_ApdexSnapshot">ApdexSnapshot</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="App.Metrics.Apdex.Interfaces.IApdexProvider.html#App_Metrics_Apdex_Interfaces_IApdexProvider_GetSnapshot_System_Boolean_">IApdexProvider.GetSnapshot(Boolean)</a></div>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider_Reset.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider.Reset%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L88">View Source</a>
+              </span>
+              <a id="App_Metrics_Apdex_ApdexProvider_Reset_" data-uid="App.Metrics.Apdex.ApdexProvider.Reset*"></a>
+              <h4 id="App_Metrics_Apdex_ApdexProvider_Reset" data-uid="App.Metrics.Apdex.ApdexProvider.Reset">Reset()</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+              </div>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="App.Metrics.Apdex.Interfaces.IApdexProvider.html#App_Metrics_Apdex_Interfaces_IApdexProvider_Reset">IApdexProvider.Reset()</a></div>
+              <span class="small pull-right mobile-hide">
+                <span class="divider">|</span>
+                <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider_Update_System_Int64_.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider.Update(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this Doc</a>
+              </span>
+              <span class="small pull-right mobile-hide">
+                <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L94">View Source</a>
+              </span>
+              <a id="App_Metrics_Apdex_ApdexProvider_Update_" data-uid="App.Metrics.Apdex.ApdexProvider.Update*"></a>
+              <h4 id="App_Metrics_Apdex_ApdexProvider_Update_System_Int64_" data-uid="App.Metrics.Apdex.ApdexProvider.Update(System.Int64)">Update(Int64)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public void Update(long value)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Int64</span></td>
+                    <td><em>value</em></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="App.Metrics.Apdex.Interfaces.IApdexProvider.html#App_Metrics_Apdex_Interfaces_IApdexProvider_Update_System_Int64_">IApdexProvider.Update(Int64)</a></div>
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Apdex_ApdexProvider.md&amp;value=---%0Auid%3A%20App.Metrics.Apdex.ApdexProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics/blob/master/src/App.Metrics/Apdex/ApdexProvider.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

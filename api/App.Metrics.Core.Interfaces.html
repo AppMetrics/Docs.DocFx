@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace App.Metrics.Core.Interfaces
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace App.Metrics.Core.Interfaces
+   ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content">
+              
+              <h1 id="App_Metrics_Core_Interfaces" data-uid="App.Metrics.Core.Interfaces">Namespace App.Metrics.Core.Interfaces
+              </h1>
+              <div class="markdown level0 summary"></div>
+              <div class="markdown level0 conceptual"></div>
+              <div class="markdown level0 remarks"></div>
+                <h3 id="interfaces">Interfaces
+              </h3>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.IAdvancedMetrics.html#App_Metrics_Core_Interfaces_IAdvancedMetrics">IAdvancedMetrics</a></h4>
+                  <section><p>Provides access to more advanced application metrics operations</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.IApdex.html#App_Metrics_Core_Interfaces_IApdex">IApdex</a></h4>
+                  <section><p><a href="https://en.wikipedia.org/wiki/Apdex">Apdex</a> allows us to measure an apdex score which is a ratio of
+the number of satisfied and tolerating requests to the total requests made. Each satisfied request counts as one
+request, while each tolerating request counts as half a satisfied request.</p>
+<p><p>
+    Apdex tracks three response counts, counts based on samples measured by the chosen</p>
+<p><a class="xref" href="App.Metrics.Sampling.Interfaces.IReservoir.html#App_Metrics_Sampling_Interfaces_IReservoir">IReservoir</a></p>
+<p><remarks>
+    The <a class="xref" href="App.Metrics.Sampling.Interfaces.IReservoir.html#App_Metrics_Sampling_Interfaces_IReservoir">IReservoir</a>  is determined by the <a class="xref" href="App.Metrics.SamplingType.html#App_Metrics_SamplingType">SamplingType</a>sampling
+    type
+</remarks>
+when the apdex metric instance is instantiated.
+</p></p>
+<p><p>
+    Satisfied, Tolerated and Frustrated request counts are calculated as follows using a user value of T seconds.
+</p></p>
+<ul><li>
+            Satisfied: T or less
+</li><li>
+    Tolerated: Greater than T or less than 4T
+</li><li>
+Frustrated: Greater than 4 T
+</li></ul>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.IApdexMetric.html#App_Metrics_Core_Interfaces_IApdexMetric">IApdexMetric</a></h4>
+                  <section></section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.ICounterMetric.html#App_Metrics_Core_Interfaces_ICounterMetric">ICounterMetric</a></h4>
+                  <section><p>Provides access to a counter metric implementation e.g. <a class="xref" href="App.Metrics.Core.CounterMetric.html#App_Metrics_Core_CounterMetric">CounterMetric</a>, allows custom counters to be
+implemented</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.IGaugeMetric.html#App_Metrics_Core_Interfaces_IGaugeMetric">IGaugeMetric</a></h4>
+                  <section><p>Provides access to a gauge metric implementation e.g. <a class="xref" href="App.Metrics.Core.FunctionGauge.html#App_Metrics_Core_FunctionGauge">FunctionGauge</a>, <a class="xref" href="App.Metrics.Core.HitRatioGauge.html#App_Metrics_Core_HitRatioGauge">HitRatioGauge</a>, allows custom gauges to be implemented</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.IHealthStatusProvider.html#App_Metrics_Core_Interfaces_IHealthStatusProvider">IHealthStatusProvider</a></h4>
+                  <section><p>Provides access to the current health status of the application by executing regsitered <a class="xref" href="App.Metrics.Core.HealthCheck.html#App_Metrics_Core_HealthCheck">HealthCheck</a>s</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.IHistogramMetric.html#App_Metrics_Core_Interfaces_IHistogramMetric">IHistogramMetric</a></h4>
+                  <section><p>Provides access to a histgram metric implementation e.g. <a class="xref" href="App.Metrics.Core.HistogramMetric.html#App_Metrics_Core_HistogramMetric">HistogramMetric</a>, allows custom histograms to be implemented</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.IMeterMetric.html#App_Metrics_Core_Interfaces_IMeterMetric">IMeterMetric</a></h4>
+                  <section><p>Provides access to a meter metric implementation e.g. <a class="xref" href="App.Metrics.Core.MeterMetric.html#App_Metrics_Core_MeterMetric">MeterMetric</a>, allows custom meters to be implemented</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.IMetricsDataProvider.html#App_Metrics_Core_Interfaces_IMetricsDataProvider">IMetricsDataProvider</a></h4>
+                  <section><p>Provides access to the current metrics recorded by the application</p>
+</section>
+                  <h4><a class="xref" href="App.Metrics.Core.Interfaces.ITimerMetric.html#App_Metrics_Core_Interfaces_ITimerMetric">ITimerMetric</a></h4>
+                  <section><p>Provides access to a timer metric implementation e.g. <a class="xref" href="App.Metrics.Core.TimerMetric.html#App_Metrics_Core_TimerMetric">TimerMetric</a>, allows custom timers to be
+implemented</p>
+</section>
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/new/master/apispec/new?filename=App_Metrics_Core_Interfaces.md&amp;value=---%0Auid%3A%20App.Metrics.Core.Interfaces%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

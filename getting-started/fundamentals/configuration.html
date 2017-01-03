@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Configuration Options </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Configuration Options ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <h1 id="configuration-options">Configuration Options</h1>
+              
+<p>App Metrics provides access to configuration options through the <code>AddMetrics</code> extension on the <code>IServiceCollection</code>. </p>
+<p>These configuration options include:</p>
+<ul>
+<li><strong>DefaultContextLabel</strong>: Metrics recorded through the <code>IMetrics</code> interface are grouped into &quot;Contexts&quot;, for example a database context or application context. Metrics names should be unique per context. When there is not context label presented when recording a metric the default will be used which is &quot;Application&quot;, this value can be changed through the DefaultContextLabel option.</li>
+<li><strong>DefaultSamplingType</strong>: Histograms track the statistical distribution of a set of values, they do this by generating values from a resevoir of values using sampling. App Metrics provides different types of sampling, the default sampling type is Exponentially Decaying, this property allows that default value to be changed. The default sampling type is only used if the Histogram being updated does not specify it&#39;s own sampling type.</li>
+<li><strong>GlobalTags</strong>: All metric types can be tagged, for example we could tag all metrics by environment e.g. staging or production so that when we report metrics we know the environment for which they originated. GlobalTags provide access to a <code>Dictionary&lt;string, string&gt;</code> which is used to tag all metrics.</li>
+<li><strong>MetricsEnabled</strong>: Allows recording of all metrics to be disabled.</li>
+<li><strong>ReportingEnabled</strong>: Allows all configured reporters to be disabled.</li>
+</ul>
+<h2 id="changing-options-using-actionappmetricoptions">Changing options using <code>Action&lt;AppMetricOptions&gt;</code></h2>
+<pre><code class="lang-csharp" name="Main" highlight-lines="5,7">public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc(options =&gt; options.AddMetricsResourceFilter());
+        
+        services.AddMetrics(options =&gt; {
+                options.DefaultContextLabel = &quot;MyContext&quot;,
+                options.DefaultSamplingType = SamplingType.SlidingWindow;
+                options.GlobalTags.Add(&quot;env&quot;, &quot;stage&quot;);
+                options.MetricsEnabled = true;
+                options.ReportingEnabled = true;     	
+            })
+            .AddJsonSerialization()
+            .AddHealthChecks()
+            .AddMetricsMiddleware();
+    }
+
+    public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+    {	        
+        app.UseMetrics();
+    }
+}
+</code></pre><h2 id="changing-options-using-microsoftextensionsconfigurationiconfiguration">Changing options using <code>Microsoft.Extensions.Configuration.IConfiguration</code></h2>
+<p>Below is an example <code>Startup.cs</code> using <code>appsettings.json</code> as a configuration source:</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="17">public class Startup
+{
+    public Startup(IHostingEnvironment env)
+    {
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile(&quot;appsettings.json&quot;, optional: true, reloadOnChange: true)
+            .AddJsonFile($&quot;appsettings.{env.EnvironmentName}.json&quot;, optional: true)
+            .AddEnvironmentVariables();
+        Configuration = builder.Build();
+    }
+
+    public IConfigurationRoot Configuration { get; set; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMetrics(Configuration.GetSection(&quot;AppMetrics&quot;))
+            .AddJsonSerialization()
+            .AddHealthChecks()
+            .AddMetricsMiddleware();
+    }
+
+    public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+    {	        
+        app.UseMetrics();
+    }
+}
+</code></pre><p>And the <code>appsettings.json</code> file</p>
+<pre><code class="lang-json" name="Main">{
+    &quot;AppMetrics&quot;: {
+        &quot;DefaultContextLabel&quot;: &quot;MyContext&quot;,
+        &quot;DefaultSamplingType&quot;: &quot;SlidingWindow&quot;,
+        &quot;MetricsEnabled&quot;: true,
+        &quot;ReportingEnabled&quot;: true,
+        &quot;GlobalTags&quot;: { &quot;env&quot;: &quot;stage&quot; }  
+    }
+}
+</code></pre><h2 id="changes-options-via-an-options-delegate-and-configuration-source">Changes options via an options delegate and configuration source</h2>
+<p>In cases where it&#39;s required to have some settings in a configuration file but others in code, it&#39;s possible to provide both an options delegate and configuration source, where options are applied in order they are registered. For example, in the following code snippet any options registered via the configuration section will override those registered in code. The reverse can also be applied by changing the order of the options delegate and configuration source on the <code>AddMetrics</code> method.</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="7,8,9,10">public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc(options =&gt; options.AddMetricsResourceFilter());
+        
+        services.AddMetrics(options =&gt; {
+                options.DefaultContextLabel = &quot;MyContext&quot;,
+                options.DefaultSamplingType = SamplingType.SlidingWindow;                        	
+            }, Configuration.GetSection(&quot;AppMetrics&quot;))
+            .AddJsonSerialization()
+            .AddHealthChecks()
+            .AddMetricsMiddleware();
+    }
+
+    public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+    {	        
+        app.UseMetrics();
+    }
+}
+</code></pre><div class="NOTE"><h5>Note</h5><p>To have routes measured a resource filter is required to extract the route template of each request, add the resource filter when configuring Mvc options i.e.</p>
+<pre><code class="lang-csharp">services.AddMvc(options =&gt; options.AddMetricsResourceFilter());
+</code></pre></div>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="middleware-configuration.html">AspNet Core Middleware Configuration Options</a></li>
+<li><a href="organizing-metrics.html">Organizing Metrics</a></li>
+<li><a href="../../samples/index.html">Sample Applications</a></li>
+</ul>
+
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/blob/master/getting-started/fundamentals/configuration.md/#L1" class="contribution-link">Edit this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

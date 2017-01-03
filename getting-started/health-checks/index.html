@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Health Checks </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Health Checks ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <h1 id="health-checks">Health Checks</h1>
+              
+<p>Health Checks give you the ability to monitor the health of your application by writing a small tests which returns either a healthy, degraded or un-healthy result. This is useful not only to test the internal health of your application but also it&#39;s external dependencies such as an third party api which your application relies on to function correctly.</p>
+<p>Health checks are written by either inheriting <code>HealthCheck</code> or using the <code>IHealthCheckFactory</code> provided via the <code>IMetricsHostBuilder</code>. App Metrics automatically registers any class inheriting <code>HealthCheck</code> and will execute all checks asynchronously by either an <code>IMetricReporter</code> that is configured or when using <a href="../fundamentals/middleware-configuration.html">App.Metrics.Extensions.Middleware</a> and the <code>/health</code> endpoint is requested. External monitoring tools can be configured to request the <code>/health</code> endpoint to continously test the health of your api and alert via desired means. Healthy results from this endpoint will return a 200 status code whereas if any health check fails the endpoint will return a 500 status code.</p>
+<h2 id="configuring-health-checks">Configuring Health Checks</h2>
+<p>Ensure that health checking is enabled in your <code>Startup.cs</code> in the case of an AspNet Application or in your <code>Program.cs</code> in the case of a Console Application.</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="7">public class Startup
+{
+	public void ConfigureServices(IServiceCollection services)
+	{
+		services.AddMetrics()
+			.AddJsonSerialization()
+			.AddHealthChecks()
+			.AddMetricsMiddleware();
+	}
+
+	public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+	{            
+		app.UseMetrics();
+	}
+}
+</code></pre><h2 id="implementing-a-health-check">Implementing a Health Check</h2>
+<p>Healths checks can be implemented as a stand alone class:</p>
+<pre><code class="lang-csharp" name="Main">public class DatabaseHealthCheck : HealthCheck
+{
+    private readonly IDatabase _database;
+
+    public DatabaseHealthCheck(IDatabase database)
+        : base(&quot;DatabaseCheck&quot;)
+    {
+        _database = database;
+    }
+
+    protected override Task&lt;HealthCheckResult&gt; CheckAsync(CancellationToken token = default(CancellationToken))
+    {
+        // exceptions will be caught and the result will be un-healthy
+        _database.Ping();
+
+        return Task.FromResult(HealthCheckResult.Healthy());
+    }
+}
+</code></pre><p>Or via the fluent building in your startup code:</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="9,10">public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMetrics()
+            .AddJsonSerialization()
+            .AddHealthChecks(factory =&gt;
+            {
+                factory.Register(&quot;DatabaseConnected&quot;, 
+                    () =&gt; Task.FromResult(&quot;Database Connection OK&quot;));                    
+            })
+            .AddMetricsMiddleware();
+    }
+
+    public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+    {            
+        app.UseMetrics();
+    }
+}
+</code></pre><div class="NOTE"><h5>Note</h5><p>As well as scanning the executing assembly for health checks, App Metrics will also scan all referenced assemblies which have a dependency on App.Metrics and register any health checks it finds.</p>
+</div>
+<h2 id="predefined-health-checks">Predefined Health Checks</h2>
+<p>App Metrics includes some pre-defined health checks which can be registered on startup as shown below.</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="10,12,14">public void ConfigureServices(IServiceCollection services)
+{
+    var threshold = 1;
+
+    services.AddMetrics()
+        .AddJsonSerialization()
+        .AddHealthChecks(factory =&gt;
+        {
+            // Check that the current amount of private memory in bytes is below a threshold
+            factory.RegisterProcessPrivateMemorySizeHealthCheck(&quot;Private Memory Size&quot;, threshold);
+            // Check that the current amount of virtual memory in bytes is below a threshold
+            factory.RegisterProcessVirtualMemorySizeHealthCheck(&quot;Virtual Memory Size&quot;, threshold);
+            // Check that the current amount of physical memory in bytes is below a threshold
+            factory.RegisterProcessPhysicalMemoryHealthCheck(&quot;Working Set&quot;, threshold);            
+        })
+        .AddMetricsMiddleware();
+}
+</code></pre><h3 id="apdex">Apdex</h3>
+<p>When using <a href="../fundamentals/middleware-configuration.html">App.Metrics.Extensions.Middleware</a> an <a href="../metric-types/adpex.md">Adpdex</a> health check is also automatically registered, this can be disabled through the configuration options. The apdex health check will provide a healthy result for a satisfied score, degraded result for a tolerating score and an un-healthy result for a frustrating score.</p>
+<h3 id="viewing-from-a-web-host">Viewing from a Web Host</h3>
+<p>Below is a snippet from a <code>/health</code> response generated by a web host using the <a href="../intro.html#configuring-a-web-host">App.Metrics.Extensions.Middleware</a> nuget package.</p>
+<pre><code class="lang-json" name="Main">{
+  &quot;degraded&quot;: {
+    &quot;message queue reached the threshold&quot;: &quot;5000 messages in the processing queue which is above the threshold of 4000&quot;,
+    &quot;signing certificate expiry&quot;: &quot;the signing certificate is going to expire in 1 week&quot;
+  },
+  &quot;healthy&quot;: {
+    &quot;database connection&quot;: &quot;able make a connection to the database&quot;    
+  },
+  &quot;status&quot;: &quot;Unhealthy&quot;,
+  &quot;timestamp&quot;: &quot;0001-01-01T00:00:00.0000Z&quot;,
+  &quot;unhealthy&quot;: {
+    &quot;unable to ping x api&quot;: &quot;a connection to x could not be made&quot;    
+  }
+}
+</code></pre><h3 id="health-check-results">Health Check Results</h3>
+<p>There are three types of health checks: <strong>Healthy</strong>, <strong>Degraded</strong> and <strong>Unhealthy</strong> as show above.</p>
+<ul>
+<li>Healthy: Can be used to indicate that the check has passed, in a Web Host a <strong>200 Http Status</strong> will be returned.</li>
+<li>Degraded: Can be used to indicate that the check has failed but the application is still functioning as expected, this can be useful for example when different thresholds are met on the number of messages in a queue or an SSL certificate used for signing tokens is about to expire. In a Web Host a <strong>200 Http Status</strong> will be returned along with a <strong>Warning</strong> response header.</li>
+<li>Unhealthy: Can used used to indicate that the check has failed, in a Web Host a <strong>500 Http Status</strong> will be returned. Any health check which throws an uncaught exception will be returned as an unhealthy result when reporting. </li>
+</ul>
+<p>Health Check results can be returned as follows:</p>
+<pre><code class="lang-csharp" name="Main">HealthCheckResult.Healthy(message);
+
+HealthCheckResult.Unhealthy(message);
+
+HealthCheckResult.Degraded(message);
+</code></pre><div class="NOTE"><h5>Note</h5><p>An external monitoring tools could be used to request the <code>/health</code> endpoint at a configured interval to continously monitor and alert the health of your API.</p>
+</div>
+
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/blob/master/getting-started/health-checks/index.md/#L1" class="contribution-link">Edit this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

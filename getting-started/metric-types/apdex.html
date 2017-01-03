@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Apdex </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Apdex ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <h1 id="apdex">Apdex</h1>
+              
+<p><a href="https://en.wikipedia.org/wiki/Apdex">Apdex</a>(Application Performance Index) allows us to monitor end-user satisfaction. It is an open industry standard that estimates the end user&#39;s satisfaction level on an application&#39;s response time through a score between 0 and 1.</p>
+<p>The Apdex score is calculated based on your required SLA where you can define a response time threshold of T seconds, where all responses handled in T or less seconds satisfy the end user.</p>
+<p>Apdex provides three thresholds estimating end user satisfaction, <code>satisfied</code>, <code>tolerating</code> and <code>frustrating</code>.</p>
+<ul>
+<li><strong>Satisfied:</strong> Response time less than or equal to T seconds.</li>
+<li><strong>Tolerating:</strong> Response time between T seconds and 4T seconds.</li>
+<li><strong>Satisfied:</strong> Response time greater than 4 T seconds.</li>
+</ul>
+<p>App Metrics caculates the counts of the three thresholds using a <a href="histograms.html">Histogram</a> to sample data recorded. The value T seconds, histogram sample size and <a href="../sampling/index.html">reservoir sampling</a> type can be configured when creating the <code>ApdexOptions</code>.</p>
+<div class="NOTE"><h5>Note</h5><p>The Apdex score between 0 and 1 is calculated using the following:</p>
+<p>(Satisfied requests + (Tolerating requests / 2))) / Total number of requests</p>
+</div>
+<h2 id="using-apdex">Using Apdex</h2>
+<pre><code class="lang-csharp" name="Main">var apdex = new ApdexOptions
+{
+    Name = &quot;Sample Apdex&quot;,
+    ApdexTSeconds = 0.5, // Adjust based on your SLA
+    SampleSize = 1028 // Histograms sample size, defaults to 1028
+};
+
+using (_metrics.Track(MetricsRegistry.ApdexScores.TestApdex))
+{
+    // Method to track apdex score for
+}
+</code></pre><p>Which for example when using the <a href="../intro.html#configuring-a-web-host">JSON formatter</a> would result in something similar to:</p>
+<pre><code class="lang-json" name="Main">{    
+    &quot;apdexScores&quot;: [
+        {
+            &quot;frustrating&quot;: 64,
+            &quot;sampleSize&quot;: 198,
+            &quot;satisfied&quot;: 58,
+            &quot;score&quot;: 0.48,
+            &quot;tolerating&quot;: 76,
+            &quot;name&quot;: &quot;Apdex&quot;,
+            &quot;tags&quot;: {
+                &quot;env&quot;: &quot;stage&quot;            
+            }
+        }
+    ]
+}
+</code></pre><p>When using the <code>App.Metrics.Extensions.Middleware</code> or <code>App.Metrics.Extensions.Mvc</code> package, an apdex score will be providing as shown above based on all requests. However you could also record an apdex score for any other request independently, which could be useful if for example if mulitple clients where using the same api, one with access to all endpoints and the other with access to a subset of endpoints, this would then allow us to report an SLA targetting each client.</p>
+<div class="NOTE"><h5>Note</h5><p>To visualize apdex, setup <a href="https://www.influxdata.com/time-series-platform/influxdb/">InfluxDB</a> and <a href="https://grafana.net/">Grafana</a> on your local environment, import the <code>Api.InfluxDB.Sample.Apdex.json</code> sample dashboard into Grafana and run of the <code>Api.InfluxDB.Sample</code> sample application.</p>
+</div>
+<p>Here is the result of running the sample and viewing in Grafana</p>
+<p><img alt="grafana apdex demo" src="../../images/grafana_apdex.png"></p>
+<div class="NOTE"><h5>Note</h5><p>We can see in the image above that at the time when there were many frustrating requests the apdex as in the critial threshold at the bottom left of the dashboards, as these requests dropped of and the number of satisfied requests increased the apdex score began to increase towards one.</p>
+</div>
+<h2 id="related-docs">Related Docs</h2>
+<ul>
+<li><a href="../intro.html#measuring-application-metrics">Getting Started</a></li>
+<li><a href="../fundamentals/configuration.html">Configuration</a></li>
+</ul>
+
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/blob/master/getting-started/metric-types/apdex.md/#L1" class="contribution-link">Edit this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

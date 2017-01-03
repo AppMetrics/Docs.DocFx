@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Organizing Metrics </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Organizing Metrics ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <h1 id="organizing-metrics">Organizing Metrics</h1>
+              
+<p>App Metrics provides a two ways to organize your metrics: </p>
+<ol>
+<li>By specifing a <strong>Context</strong> label when <a href="../intro.html#measuring-application-metrics">defining your metrics</a>. By default any all custom Metrics will belong the the &quot;Application&quot; Context.</li>
+<li>Through the use of <strong>Tags</strong> when <a href="../intro.html#measuring-application-metrics">defining your metrics</a> or by <a href="configuration.html">configuring tags</a> globally for all Metrics.</li>
+</ol>
+<h2 id="metric-contexts">Metric Contexts</h2>
+<p>Organizing your Metrics into separate meaningful contexts is helpful for visualization and reporting. Only one level of Context categorization is supported.</p>
+<p>The default global context can be modified using the <strong>DefaultContextLabel</strong> in the <a href="configuration.html">configuration options</a> when configuring your application to use App Metrics.</p>
+<h3 id="defining-a-context-on-a-metric">Defining a Context on a Metric</h3>
+<p>To add Metrics to a particular context, the context can be specified when <a href="../intro.html#measuring-application-metrics">defining your metrics</a>. For example:</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="6,10,18,27,31">public static class AppMetricsRegistery
+{
+    public static class ProcessMetrics
+    {
+        private static readonly MetricTags Tags = new MetricTags().With(&quot;tag-key&quot;, &quot;tag-value&quot;);
+        private static readonly string Context = &quot;Process&quot;;
+
+        public static GaugeOptions SystemNonPagedMemoryGauge = new GaugeOptions
+        {
+            Context = Context,
+            Name = &quot;System Non-Paged Memory&quot;,
+            MeasurementUnit = Unit.Bytes,
+            Tag = Tags
+        };            
+
+        public static GaugeOptions ProcessVirtualMemorySizeGauge = new GaugeOptions
+        {
+            Context = Context,
+            Name = &quot;Process Virtual Memory Size&quot;,
+            MeasurementUnit = Unit.Bytes,
+            Tag = Tags
+        };
+    }
+
+    public static class DatabaseMetrics
+    {
+        private static readonly string Context = &quot;Database&quot;;
+
+        public static TimerOptions SearchUsersSqlTimer = new TimerOptions
+        {
+            Context = ContextName,
+            Name = &quot;Search Users&quot;,
+            MeasurementUnit = Unit.Calls
+        };
+    }
+}
+</code></pre><h3 id="filtering-in-process-by-context">Filtering in process by Context</h3>
+<p>The <a href="../../api/App.Metrics.DefaultMetricsFilter.html">DefaultMetricsFilter</a> can be used to filter Metrics by a Context. This would be useful if we only wanted to report on a particular Metrics Context.</p>
+<div class="NOTE"><h5>Note</h5><p>See <a href="../filtering/index.html">Metrics Filtering</a> for more details on filtering Metrics.</p>
+</div>
+<h3 id="viewing-from-a-web-host">Viewing from a Web Host</h3>
+<p>Below is a snippet from a <code>/metrics</code> response generated by a web host using the <a href="../intro.html#configuring-a-web-host">App.Metrics.Extensions.Middleware</a> nuget package (Note: Metric values have been omitted for brevity).</p>
+<pre><code class="lang-json" name="Main" highlight-lines="4,10,18,26">{
+  &quot;contexts&quot;: [
+    {
+      &quot;context&quot;: &quot;Application&quot;,
+      &quot;counters&quot;: [],
+      &quot;meters&quot;: [],
+      &quot;timers&quot;: []
+    },
+    {
+      &quot;context&quot;: &quot;Application.HttpRequests&quot;,
+      &quot;counters&quot;: [],
+      &quot;gauges&quot;: [],
+      &quot;histograms&quot;: [],
+      &quot;meters&quot;: [],
+      &quot;timers&quot;: []
+    },
+    {
+      &quot;context&quot;: &quot;Application.OAuth2Client.HttpRequests&quot;,
+      &quot;counters&quot;: [],
+      &quot;gauges&quot;: [],
+      &quot;histograms&quot;: [],
+      &quot;meters&quot;: [],
+      &quot;timers&quot;: []
+    },
+    {
+      &quot;context&quot;: &quot;Database&quot;,
+      &quot;counters&quot;: [],
+      &quot;meters&quot;: [],
+      &quot;timers&quot;: []
+    }
+  ],
+  &quot;environment&quot;: { },
+  &quot;timestamp&quot;: &quot;&quot;,
+  &quot;version&quot;: &quot;1&quot;
+}
+</code></pre><div class="NOTE"><h5>Note</h5><p>You&#39;ll need to install the <a href="nuget-packages.html">App.Metrics.Formatters.Json</a> nuget package and <code>AddJsonSerialization()</code> in your <code>Startup.cs</code> for formatting <code>/metrics</code> results as json.</p>
+</div>
+<h2 id="metric-tagging">Metric Tagging</h2>
+<p>Metrics can be tagged when <a href="../intro.html#measuring-application-metrics">defining your metrics</a>, these tags can then be shipped with your metric values to your database of choice which is useful for commonly-queried metadata. </p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="5,13,21">public static class AppMetricsRegistery
+{
+    public static class ProcessMetrics
+    {
+        private static readonly MetricTags Tags = new MetricTags().With(&quot;tag-key&quot;, &quot;tag-value&quot;);
+        private static readonly string Context = &quot;Process&quot;;
+
+        public static GaugeOptions SystemNonPagedMemoryGauge = new GaugeOptions
+        {
+            Context = Context,
+            Name = &quot;System Non-Paged Memory&quot;,
+            MeasurementUnit = Unit.Bytes,
+            Tag = Tags
+        };            
+
+        public static GaugeOptions ProcessVirtualMemorySizeGauge = new GaugeOptions
+        {
+            Context = Context,
+            Name = &quot;Process Virtual Memory Size&quot;,
+            MeasurementUnit = Unit.Bytes,
+            Tag = Tags
+        };
+    }
+
+    public static class DatabaseMetrics
+    {
+        private static readonly string Context = &quot;Database&quot;;
+
+        public static TimerOptions SearchUsersSqlTimer = new TimerOptions
+        {
+            Context = ContextName,
+            Name = &quot;Search Users&quot;,
+            MeasurementUnit = Unit.Calls
+        };
+    }
+}
+</code></pre><p>Tags can also be defined for all Metrics globally which is useful for tagging by things like machine name, envrionment, ip address, application name etc.</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="8">public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc(options =&gt; options.AddMetricsResourceFilter());
+        
+        services.AddMetrics(options =&gt; {
+                options.DefaultContextLabel = &quot;MyContext&quot;,
+                options.DefaultSamplingType = SamplingType.SlidingWindow;
+                options.GlobalTags.Add(&quot;env&quot;, &quot;stage&quot;);
+                options.MetricsEnabled = true;
+                options.ReportingEnabled = true;     	
+            })
+            .AddJsonSerialization()
+            .AddHealthChecks()
+            .AddMetricsMiddleware();
+    }
+
+    public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+    {	        
+        app.UseMetrics();
+    }
+}
+</code></pre><p>App Metrics provides an extension method on the AppMetricsOptions delegate passing some envrionment information that can be used to set global tags such as the machine name, assembly version etc.</p>
+<pre><code class="lang-csharp" name="Main" highlight-lines="7,8,9,10,11,12,13">public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMetrics(options =&gt; {
+                options.DefaultContextLabel = &quot;MyContext&quot;,
+                options.WithGlobalTags((globalTags, envInfo) =&gt;
+                {
+                    globalTags.Add(&quot;host&quot;, envInfo.HostName);
+                    globalTags.Add(&quot;machine_name&quot;, envInfo.MachineName);
+                    globalTags.Add(&quot;app_name&quot;, envInfo.EntryAssemblyName);
+                    globalTags.Add(&quot;app_version&quot;, envInfo.EntryAssemblyVersion);
+                });  	
+            })
+            .AddJsonSerialization()
+            .AddHealthChecks()
+            .AddMetricsMiddleware();
+    }
+
+    public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+    {	        
+        app.UseMetrics();
+    }
+}
+</code></pre><h3 id="filtering-in-process-by-tag-keys">Filtering in process by Tag Keys</h3>
+<p>The <a href="../../api/App.Metrics.DefaultMetricsFilter.html">DefaultMetricsFilter</a> can be used to filter Metrics by a Tag Keys. This would be useful if we only wanted to report on a particular Metrics Tags.</p>
+<div class="NOTE"><h5>Note</h5><p>See <a href="../filtering/index.html">Metrics Filtering</a> for more details on filtering Metrics.</p>
+</div>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="../intro.html#measuring-application-metrics">Measuring Application Metrics</a></li>
+<li><a href="../../samples/index.html">Sample Applications</a></li>
+</ul>
+
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/blob/master/getting-started/fundamentals/organizing-metrics.md/#L1" class="contribution-link">Edit this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

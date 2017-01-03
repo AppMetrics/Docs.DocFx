@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AspNet Middleware Configuration Options </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="AspNet Middleware Configuration Options ">
+    <meta name="generator" content="docfx 2.7.3.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a><span class="app-name">App Metrics</span>   
+                 <a href="https://github.com/alhardy/AppMetrics" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:1000;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <h1 id="aspnet-middleware-configuration-options">AspNet Middleware Configuration Options</h1>
+              
+<p>App Metrics includes an <a href="../intro.html">AspNet Middleware Extension</a> which will record things like error rates per endpoint and an overall rate, request rates per endpoint and an overall rate etc.</p>
+<p>Configuration options are accessible through the <code>AddMetricsMiddleware</code> extension on the <code>IMetricsHostBuilder</code>. </p>
+<p>These configuration options include:</p>
+<ul>
+<li><strong>HealthEndpoint</strong>: Allows customization of the endpoint which will report the health status of the application. The default path is <code>/health</code></li>
+<li><strong>HealthEndpointEnabled</strong>: Allows enabling/disabling of the <code>/health</code> endpoint, when disabled will result in a 404 status code, the default is true.</li>
+<li><strong>IgnoredRoutesRegexPatterns</strong>: The AspNet Middleware Extension measures for example a Timer metric for each request, specific endpoints can be ignored by providing an <code>IList&lt;string&gt;</code> of regex patterns. </li>
+<li><strong>MetricsEndpoint</strong>: Allows customization of the endpoint which will report a snapshot of the applications current metric measurements. The default path is <code>/metrics</code></li>
+<li><strong>MetricsEndpointEnabled</strong>: Allows enabling/disabling of the <code>/metrics</code> endpoint, when disabled will result in a 404 status code, the default is true.</li>
+<li><strong>MetricsTextEndpoint</strong>: Allows customization of the endpoint which will report a snapshot of the applications current metric measurements in a hummanized format. The default path is <code>/metrics-text</code></li>
+<li><strong>MetricsTextEndpointEnabled</strong>: Allows enabling/disabling of the <code>/metrics-text</code> endpoint, when disabled will result in a 404 status code, the default is true.</li>
+<li><strong>OAuth2TrackingEnabled</strong>: Allows recording of all OAuth2 Client tracking to be disabled. When enabled middleware is configured to track request rates, an overall percentage of requests per Client / per endpoint, and error rates per Client.</li>
+<li><strong>PingEndpoint</strong>: Allows customization of the ping endpoint which simply returns pong. The default path is <code>/ping</code></li>
+<li><strong>PingEndpointEnabled</strong>: Allows enabling/disabling of the <code>/ping</code> endpoint, when disabled will result in a 404 status code, the default is true.</li>
+<li><strong>ApdexTrackingEnabled</strong>: Allows enabling/disabling of calculating the <a href="../metric-types/apdex.html">Apdex</a> score of a web application, the default is true.</li>
+<li><strong>ApdexTSeconds</strong>: The <a href="../metric-types/apdex.html">Apdex</a> T seconds value used in calculating the score on the samples collected.</li>
+</ul>
+<h2 id="changing-options-using-actionaspnetmetricsoptions">Changing options using <code>Action&lt;AspNetMetricsOptions&gt;</code></h2>
+<pre><code class="lang-csharp" name="Main" highlight-lines="10">public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc(options =&gt; options.AddMetricsResourceFilter());
+        
+        services.AddMetrics()
+            .AddJsonSerialization()
+            .AddHealthChecks()
+            .AddMetricsMiddleware(options =&gt; {
+                options.MetricsTextEndpointEnabled = true;
+                options.HealthEndpointEnabled = true;
+                options.MetricsEndpointEnabled = true;
+                options.PingEndpointEnabled = true;
+                options.OAuth2TrackingEnabled = true;
+
+                options.HealthEndpoint = &quot;/app-health&quot;;
+                options.MetricsEndpoint = &quot;/app-metrics&quot;;
+                options.MetricsTextEndpoint = &quot;/app-metrics-text&quot;;
+                options.PingEndpoint = &quot;/api-up&quot;;
+
+                options.IgnoredRoutesRegexPatterns = new[] {&quot;(?i)^api/test/ignore&quot;};
+            });
+    }
+
+    public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
+    {	        
+        app.UseMetrics();
+    }
+}
+</code></pre><h2 id="changing-options-using-microsoftextensionsconfigurationiconfiguration">Changing options using <code>Microsoft.Extensions.Configuration.IConfiguration</code></h2>
+<p>Below is an example <code>Startup.cs</code> using <code>appsettings.json</code> as a configuration source:</p>
+<p>[!code-csharp<a href="../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetIConfiguration.cs?highlight=22">Main</a></p>
+<p>And the <code>appsettings.json</code> file</p>
+<pre><code class="lang-json" name="Main">{
+    &quot;AspNetMetrics&quot;: {
+        &quot;HealthEndpointEnabled&quot;: false,
+        &quot;MetricsEndpointEnabled&quot;: true,
+        &quot;MetricsTextEndpointEnabled&quot;: true,
+        &quot;PingEndpointEnabled&quot;: true,
+        &quot;OAuth2TrackingEnabled&quot;: true,
+        &quot;HealthEndpoint&quot;: &quot;/app-health&quot;,
+        &quot;MetricsEndpoint&quot;: &quot;/app-metrics&quot;,
+        &quot;MetricsTextEndpoint&quot;: &quot;/app-metrics-text&quot;,
+        &quot;PingEndpoint&quot;: &quot;/api-up&quot;,
+        &quot;IgnoredRequestPatterns&quot;: [ &quot;(?i)^api/test/ignore&quot; ]
+    }
+}
+</code></pre><div class="NOTE"><h5>Note</h5><p>To have routes measured a resource filter is required to extract the route template of each request, add the resource filter when configuring Mvc options i.e.</p>
+<pre><code class="lang-csharp">services.AddMvc(options =&gt; options.AddMetricsResourceFilter());
+</code></pre></div>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="configuration.html">App MetricsConfiguration Options</a></li>
+<li><a href="../../samples/index.html">Sample Applications</a></li>
+</ul>
+
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/alhardy/AppMetrics.DocFx/blob/master/getting-started/fundamentals/middleware-configuration.md/#L1" class="contribution-link">Edit this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Allan Hardy<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>   
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
