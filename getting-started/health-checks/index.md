@@ -1,6 +1,6 @@
 # Health Checks
 
-Health Checks give you the ability to monitor the health of your application by writing a small tests which returns either a healthy or un-healthy result. This is useful not only to test the internal health of your application but also it's external dependencies such as an third party api which your application relies on to function correctly.
+Health Checks give you the ability to monitor the health of your application by writing a small tests which returns either a healthy, degraded or un-healthy result. This is useful not only to test the internal health of your application but also it's external dependencies such as an third party api which your application relies on to function correctly.
 
 Health checks are written by either inheriting `HealthCheck` or using the `IHealthCheckFactory` provided via the `IMetricsHostBuilder`. App Metrics automatically registers any class inheriting `HealthCheck` and will execute all checks asynchronously by either an `IMetricReporter` that is configured or when using [App.Metrics.Extensions.Middleware](../fundamentals/middleware-configuration.md) and the `/health` endpoint is requested. External monitoring tools can be configured to request the `/health` endpoint to continously test the health of your api and alert via desired means. Healthy results from this endpoint will return a 200 status code whereas if any health check fails the endpoint will return a 500 status code.
 
@@ -22,6 +22,16 @@ Or via the fluent building in your startup code:
 
 > [!NOTE]
 > As well as scanning the executing assembly for health checks, App Metrics will also scan all referenced assemblies which have a dependency on App.Metrics and register any health checks it finds.
+
+## Predefined Health Checks
+
+App Metrics includes some pre-defined health checks which can be registered on startup as shown below.
+
+[!code-csharp[Main](../../src/samples/AppMetrics.HealthCheck.Code.Snippets/PredefinedHealthChecks.cs?highlight=10,12,14)]
+
+### Apdex
+
+When using [App.Metrics.Extensions.Middleware](../fundamentals/middleware-configuration.md) an [Adpdex](../metric-types/adpex.md) health check is also automatically registered, this can be disabled through the configuration options. The apdex health check will provide a healthy result for a satisfied score, degraded result for a tolerating score and an un-healthy result for a frustrating score.
 
 ### Viewing from a Web Host
 

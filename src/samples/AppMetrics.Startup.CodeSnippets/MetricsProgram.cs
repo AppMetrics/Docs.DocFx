@@ -15,7 +15,7 @@ public class Host
         var reporterFactory = provider.GetRequiredService<IReportFactory>();
         var reporter = reporterFactory.CreateReporter();
         // Will continue to run for the confgured report internal
-        reporter.RunReportsAsync(metrics, cancellationTokenSource.Token);           
+        reporter.RunReports(metrics, cancellationTokenSource.Token);           
 
         Console.ReadKey();
     }

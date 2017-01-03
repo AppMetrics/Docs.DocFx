@@ -16,6 +16,8 @@ These configuration options include:
 - **OAuth2TrackingEnabled**: Allows recording of all OAuth2 Client tracking to be disabled. When enabled middleware is configured to track request rates, an overall percentage of requests per Client / per endpoint, and error rates per Client.
 - **PingEndpoint**: Allows customization of the ping endpoint which simply returns pong. The default path is `/ping`
 - **PingEndpointEnabled**: Allows enabling/disabling of the `/ping` endpoint, when disabled will result in a 404 status code, the default is true.
+- **ApdexTrackingEnabled**: Allows enabling/disabling of calculating the [Apdex](../metric-types/apdex.md) score of a web application, the default is true.
+- **ApdexTSeconds**: The [Apdex](../metric-types/apdex.md) T seconds value used in calculating the score on the samples collected.
 
 ## Changing options using `Action<AspNetMetricsOptions>`
 
@@ -25,7 +27,7 @@ These configuration options include:
 
 Below is an example `Startup.cs` using `appsettings.json` as a configuration source:
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetIConfiguration.cs?highlight=22)]      	     
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetIConfiguration.cs?highlight=22)
 
 And the `appsettings.json` file
 

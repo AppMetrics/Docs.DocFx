@@ -26,6 +26,8 @@
       href: metric-types/timers.md   
 - name: Health Checks
   href: health-checks/index.md    
+- name: Web Application Monitoring
+  href: web-apps/index.md     
 - name: Filtering Metrics
   href: filtering/index.md    
 - name: Resevoir Sampling

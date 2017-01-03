@@ -16,9 +16,7 @@ App Metrics caculates the counts of the three thresholds using a [Histogram](his
 > [!NOTE]
 > The Apdex score between 0 and 1 is calculated using the following:
 > 
-> Satisfied requests + (Tolerating requests / 2))
-> ---------
-> # Total number of requests
+> (Satisfied requests + (Tolerating requests / 2))) / Total number of requests
 
 
 ## Using Apdex
