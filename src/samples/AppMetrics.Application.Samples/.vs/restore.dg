@@ -1,3 +1,4 @@
-#:C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Samples\src\ConsoleSample\ConsoleSample.xproj
-C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Samples\src\ConsoleSample\ConsoleSample.xproj|C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Samples\src\HealthChecks\HealthChecks.xproj
-C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Samples\src\ConsoleSample\ConsoleSample.xproj|C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Samples\src\MetricSamples\MetricSamples.xproj
+#:C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Application.Samples\src\MetricSamples\MetricSamples.xproj
+#:C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Application.Samples\src\ConsoleSample\ConsoleSample.xproj
+C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Application.Samples\src\ConsoleSample\ConsoleSample.xproj|C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Application.Samples\src\HealthChecks\HealthChecks.xproj
+C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Application.Samples\src\ConsoleSample\ConsoleSample.xproj|C:\_dev\mysource-git\AppMetrics.DocFx\src\samples\AppMetrics.Application.Samples\src\MetricSamples\MetricSamples.xproj

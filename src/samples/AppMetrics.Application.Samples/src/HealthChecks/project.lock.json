@@ -3,10 +3,10 @@
   "version": 2,
   "targets": {
     ".NETStandard,Version=v1.6": {
-      "App.Metrics/1.0.0-beta1-build00033": {
+      "App.Metrics/1.0.0-beta3": {
         "type": "package",
         "dependencies": {
-          "App.Metrics.Concurrency": "1.0.0-beta1",
+          "App.Metrics.Concurrency": "1.0.0-beta3",
           "Microsoft.DotNet.InternalAbstractions": "1.0.500-preview2-1-003177",
           "Microsoft.Extensions.Configuration": "1.1.0",
           "Microsoft.Extensions.DependencyInjection": "1.1.0",
@@ -29,7 +29,7 @@
           "lib/netstandard1.6/App.Metrics.dll": {}
         }
       },
-      "App.Metrics.Concurrency/1.0.0-beta1-build00034": {
+      "App.Metrics.Concurrency/1.0.0-beta3": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -1827,12 +1827,12 @@
     }
   },
   "libraries": {
-    "App.Metrics/1.0.0-beta1-build00033": {
-      "sha512": "uTYG1ywIQpKn6CLoTH5AXCtdcWZwrcNuPWqaPSB+WaA16W+/0lLYjeNnn40f5Vq/JwTGWd8NUR+mLG7NOIGubg==",
+    "App.Metrics/1.0.0-beta3": {
+      "sha512": "gUoz29HyS8l3KxOGdl3fnGWFoMKCC8+ET1dnvHYvFql1NEAvKGdvO5C4hoe6Jq31UdTSJKbQiMBoIPsGCzynNw==",
       "type": "package",
-      "path": "App.Metrics/1.0.0-beta1-build00033",
+      "path": "App.Metrics/1.0.0-beta3",
       "files": [
-        "App.Metrics.1.0.0-beta1-build00033.nupkg.sha512",
+        "App.Metrics.1.0.0-beta3.nupkg.sha512",
         "App.Metrics.nuspec",
         "lib/net461/App.Metrics.dll",
         "lib/net461/App.Metrics.xml",
@@ -1840,12 +1840,12 @@
         "lib/netstandard1.6/App.Metrics.xml"
       ]
     },
-    "App.Metrics.Concurrency/1.0.0-beta1-build00034": {
-      "sha512": "gpUdCLQ0YrInAQ+t1fcOSim7HziiAQy/TBqodrbbhsICA12PnmsF+0LvawUeP8JpJw+o1ptXmU80LCEjH8aRXw==",
+    "App.Metrics.Concurrency/1.0.0-beta3": {
+      "sha512": "G6YTjlDxbncLm1LDeLBwgxmBUbfJpCRdkso6JqBna8sv/cfofnFB+jaYKSSxLV0dlrk9uRZ/leaub/huV/pNDQ==",
       "type": "package",
-      "path": "App.Metrics.Concurrency/1.0.0-beta1-build00034",
+      "path": "App.Metrics.Concurrency/1.0.0-beta3",
       "files": [
-        "App.Metrics.Concurrency.1.0.0-beta1-build00034.nupkg.sha512",
+        "App.Metrics.Concurrency.1.0.0-beta3.nupkg.sha512",
         "App.Metrics.Concurrency.nuspec",
         "lib/net45/App.Metrics.Concurrency.dll",
         "lib/net45/App.Metrics.Concurrency.xml",
@@ -5909,7 +5909,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "App.Metrics >= 1.0.0-beta1-*",
+      "App.Metrics >= 1.0.0-beta3",
       "NETStandard.Library >= 1.6.1"
     ],
     ".NETStandard,Version=v1.6": []

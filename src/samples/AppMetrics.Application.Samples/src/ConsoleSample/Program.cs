@@ -34,7 +34,7 @@ namespace ConsoleSample
             SetupSampleScheduler(application);
             SetupResetMetrics();
 
-            application.Reporter.RunReportsAsync(application.Metrics, application.Token);
+            application.Reporter.RunReports(application.Metrics, application.Token);
 
             Console.WriteLine("Setup Complete, waiting for report run...");
             Console.ReadKey();
@@ -102,7 +102,7 @@ namespace ConsoleSample
         private static void SetupResetMetrics()
         {
             var resetMetricScheduler = new DefaultTaskScheduler();
-            resetMetricScheduler.Interval(TimeSpan.FromSeconds(10), () =>
+            resetMetricScheduler.Interval(TimeSpan.FromSeconds(10), TaskCreationOptions.None, () =>
             {
                 // Reset the counter to zero
                 _metrics.Advanced.Counter(SampleMetricRegistry.SentEmailsCounter).Reset();
@@ -112,7 +112,7 @@ namespace ConsoleSample
         private static void SetupSampleScheduler(Application application)
         {
             var scheduler = new DefaultTaskScheduler();
-            scheduler.Interval(TimeSpan.FromMilliseconds(300), () => { application.CounterSamples.RunSamples(); });
+            scheduler.Interval(TimeSpan.FromMilliseconds(300), TaskCreationOptions.None,() => { application.CounterSamples.RunSamples(); });
         }
     }
 }

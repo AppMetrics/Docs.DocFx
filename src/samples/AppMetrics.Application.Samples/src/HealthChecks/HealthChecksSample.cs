@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using App.Metrics.Core;
 
 namespace HealthChecks
@@ -13,7 +14,7 @@ namespace HealthChecks
             _database = database;
         }
 
-        protected override Task<HealthCheckResult> CheckAsync()
+        protected override Task<HealthCheckResult> CheckAsync(CancellationToken token = default(CancellationToken))
         {
             // exceptions will be caught and 
             // the result will be unhealthy

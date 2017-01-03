@@ -5,9 +5,9 @@
   },
 
   "dependencies": {
-    "App.Metrics": "1.0.0-beta1-*",
-    "App.Metrics.Extensions.Reporting.Console": "1.0.0-beta1-*",
-    "App.Metrics.Extensions.Reporting.TextFile": "1.0.0-beta1-*",
+    "App.Metrics": "1.0.0-beta3",
+    "App.Metrics.Extensions.Reporting.Console": "1.0.0-beta3",
+    "App.Metrics.Extensions.Reporting.TextFile": "1.0.0-beta3",
     "HealthChecks": "1.0.0-*",
     "MetricSamples": "1.0.0-*",
     "Microsoft.NETCore.App": {

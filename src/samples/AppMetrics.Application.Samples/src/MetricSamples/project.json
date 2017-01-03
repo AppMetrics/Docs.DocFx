@@ -2,7 +2,7 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "App.Metrics": "1.0.0-beta1-*",
+    "App.Metrics": "1.0.0-beta3",
     "NETStandard.Library": "1.6.1"
   },
 
