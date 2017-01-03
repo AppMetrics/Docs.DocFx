@@ -2,7 +2,7 @@
 {
     var influxDbSettings = new InfluxDbReporterSettings
     {
-        BaseAddress = "http://127.0.0.1:8086",
+        BaseAddress = new Uri("http://127.0.0.1:8086"),
         Database = "appmetrics",
         ReportInterval = TimeSpan.FromSeconds(10)                        
     };
