@@ -21,7 +21,7 @@ What does the above configuration do?
 	4.  `/health`: Executes all health checks registered to determin the health status of the application
 
 > [!NOTE]
-> Try either the [AspNet Core Api](https://github.com/alhardy/AppMetrics/tree/master/samples/Api.Sample) or [AspNet Core MVC](https://github.com/alhardy/AppMetrics/tree/master/samples/Mvc.Sample) Sample
+> Try either the [AspNet Core Api](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Api.Sample) or [AspNet Core MVC](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Mvc.Sample) Sample
 
 ## Configuring a Console Application
 
@@ -38,7 +38,7 @@ Modify your `Program.cs` with the following:
 - `AddReporting` provides access to the `IReportFactory` allowing multiple metric report providers to be configured that will execute on each report run at the specified interval
 
 > [!NOTE]
-> Try the [.NET Core Console Application](https://github.com/alhardy/AppMetrics/tree/master/samples/App.Sample) Sample.
+> Try the [.NET Core Console Application](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/App.Sample) Sample.
 
 ## Measuring Application Metrics
 

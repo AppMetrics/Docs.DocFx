@@ -38,7 +38,7 @@ Below is a sample Grafana dashboard showing showing some of the above metrics.
 <img alt="grafana demo" src="../../images/web_host_grafana.jpg" />
 
 > [!NOTE]
-> All [sample dashboards](https://github.com/alhardy/AppMetrics/tree/master/grafana_dashboards) mentioned in the documenation can be downloaded and imported into Grafana.
+> All [sample dashboards](https://github.com/alhardy/AppMetrics.Samples/tree/master/grafana_dashboards) mentioned in the documenation can be downloaded and imported into Grafana.
 
 ## Related Docs
 

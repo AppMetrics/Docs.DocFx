@@ -40,11 +40,6 @@ HdrHistograms are designed for recoding histograms of value measurements in late
 
 [Implementation](../../api/App.Metrics.Sampling.HdrHistogramReservoir.html) is based on [hdrhistogram-metrics-reservoir](https://bitbucket.org/marshallpierce/hdrhistogram-metrics-reservoir/src/83a8ec568a1e?at=master).
 
-
-> [!NOTE]
-> ### Just a Placeholder for now..
-> Provide sample [Grafana](http://grafana.org/) screen shots show the difference over time between each type of resevoir sampling.
-
 > [!NOTE]
 > ### Original Implementation
 > Resevoir Sampling was originally implemented by Iulian Margarintescu in the [Metrics.NET](https://github.com/etishor/Metrics.NET/tree/master/Src/Metrics/Sampling) library.
