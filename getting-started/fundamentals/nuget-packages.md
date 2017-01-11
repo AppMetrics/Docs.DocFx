@@ -11,6 +11,8 @@ nuget install App.Metrics -pre
 ----------
 
 The `App.Metrics.Extensions.Middleware` package provides a set of Middleware Components which will measure request rates, errors rates, OAuth Client tracking etc.
+
+For web applications running AspNet MVC or AspNet WebApi (pre AspNet Core), the [.NET 4.5.2 packages](./nuget-packages.html#pre-aspnet-core-web-applications) can be used as a replacement, `App.Metrics.Extensions.Middleware` requires AspNet Core.
     
 ```console
 nuget install App.Metrics.Extensions.Middleware -pre
@@ -55,3 +57,38 @@ The `App.Metrics.Extensions.Reporting.InfluxDB` package is an App Metrics report
 ```console
 nuget install App.Metrics.Extensions.Reporting.InfluxDB -pre
    ```   
+
+## Pre AspNet Core Web Applications
+
+- [Source Code](https://github.com/alhardy/AppMetrics.Owin)
+- [Samples](https://github.com/alhardy/AppMetrics.Samples/blob/master/AppMetrics.Samples.NET452.sln)
+
+----------
+
+The `App.Metrics.Extensions.Owin` package package provides a set of Owin Middleware Components which will measure request rates, errors rates, OAuth Client tracking etc. This is the OWIN equivalent to [AspNet Core Middleware](https://www.nuget.org/packages/App.Metrics.Extensions.Middleware/).
+    
+```console
+nuget install App.Metrics.Extensions.Owin -pre
+   ```       
+
+----------
+
+----------
+
+The `App.Metrics.Extensions.Owin.Mvc` package has a dependancy on `App.Metrics.Extensions.Owin` an simply provides some AspNet MVC specific extensions allowing `App.Metrics.Extensions.Owin` to determine the route template of requests.
+    
+```console
+nuget install App.Metrics.Extensions.Mvc -pre
+   ```       
+
+----------
+
+----------
+
+The `App.Metrics.Extensions.Owin.WebApi` package has a dependancy on `App.Metrics.Extensions.Owin` an simply provides some AspNet WebApi specific extensions allowing `App.Metrics.Extensions.Owin` to determine the route template of requests.
+    
+```console
+nuget install App.Metrics.Extensions.WebApi -pre
+   ```       
+
+----------

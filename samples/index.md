@@ -10,4 +10,5 @@
 .NET 4.5.2
 
 - [AspNet MVC Sample](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Web.Mvc.Net452)
+- [AspNet Web API Sample](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Web.Api.Net452)
 - [Console Application Sample](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Console.Net452)
