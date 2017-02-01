@@ -14,7 +14,7 @@ public async Task Invoke(HttpContext context)
     {
         if (context.Request.Headers != null && context.Request.Headers.ContainsKey("Content-Length"))
         {            
-            _metrics.Update(long.Parse(context.Request.Headers["Content-Length"].First())); 
+            _metrics.Measure.Histogram.Update(long.Parse(context.Request.Headers["Content-Length"].First()));
         }
     }
 
@@ -29,9 +29,9 @@ var fileSize = new HistogramOptions
     MeasurementUnit = Unit.Calls
 };
 
-_metrics.Update(httpStatusMeter, CalculateDocumentSize(), "client_1");
-_metrics.Update(httpStatusMeter, CalculateDocumentSize(), "client_2");
+_metrics.Measure.Histogram.Update(httpStatusMeter, CalculateDocumentSize(), "client_1");
+_metrics.Measure.Histogram.Update(httpStatusMeter, CalculateDocumentSize(), "client_2");
 
-// Histogram Advanced
+// Access a Histogram Instance
 
-_metrics.Advanced.Meter(httpStatusMeter).Reset();
+_metrics.Provider.Histogram.Instance(httpStatusMeter).Reset();

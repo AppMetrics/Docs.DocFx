@@ -8,22 +8,22 @@ var requestTimer = new TimerOptions
     RateUnit = TimeUnit.Milliseconds
 };
 
-_metrics.Time(requestTimer, () => PerformRequest());
+_metrics.Measure.Timer.Time(requestTimer, () => PerformRequest());
 
 // OR
 
-using(_metrics.Time(requestTimer))
+using(_metrics.Measure.Timer.Time(requestTimer))
 {
     PerformRequest();
 }
 
 // Timer Items
 
-using(_metrics.Time(requestTimer, "feature-1"))
+using(_metrics.Measure.Timer.Time(requestTimer, "feature-1"))
 {
     PerformRequest();
 }
 
-// Meter Advanced
+// Access a Timer Instance
 
-_metrics.Advanced.Timer(httpStatusMeter).Reset();
+_metrics.Provider.Timer.Instance(httpStatusMeter).Reset();

@@ -7,9 +7,9 @@ public class MyService
         _metrics = metrics;
     }
 
-    public Task<MetricsDataValueSource> DoSomething()
+    public MetricsDataValueSource DoSomething()
     {
-        var filter = new DefaultMetricsFitler().WhereMetricNameStartsWith("test_");
-        return _metrics.Advanced.Data.ReadDataAsync(filter);
+        var filter = new DefaultMetricsFilter().WhereMetricNameStartsWith("test_");
+        return _metrics.Snapshot.Get(filter);
     }
 }

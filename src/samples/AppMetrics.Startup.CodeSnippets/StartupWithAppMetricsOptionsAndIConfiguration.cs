@@ -5,9 +5,9 @@ public class Startup
         services.AddMvc(options => options.AddMetricsResourceFilter());
         
         services.AddMetrics(options => {
-                options.DefaultContextLabel = "MyContext",
-                options.DefaultSamplingType = SamplingType.SlidingWindow;                        	
+                options.DefaultContextLabel = "MyContext"                                	
             }, Configuration.GetSection("AppMetrics"))
+            .AddDefaultReservoir(() => new Lazy<IReservoir>(() => new DefaultSlidingWindowReservoir()))
             .AddJsonSerialization()
             .AddHealthChecks()
             .AddMetricsMiddleware();

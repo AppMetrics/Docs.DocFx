@@ -3,7 +3,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddMetrics(options => {
-                options.DefaultContextLabel = "MyContext",
+                options.DefaultContextLabel = "MyContext";
                 options.WithGlobalTags((globalTags, envInfo) =>
                 {
                     globalTags.Add("host", envInfo.HostName);

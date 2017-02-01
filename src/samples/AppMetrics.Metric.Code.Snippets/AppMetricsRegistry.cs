@@ -9,12 +9,12 @@ public static class AppMetricsRegistery
     {
         Name = "Sample Counter",
         MeasurementUnit = Unit.Calls,
-    }
+    };
 
     public static HistogramOptions SampleHistogram { get; } = new HistogramOptions
     {
         Name = "Sample Histogram",
-        SamplingType = SamplingType.HighDynamicRange,
+        Reservoir = new Lazy<IReservoir>(() => new DefaultAlgorithmRReservoir()),
         MeasurementUnit = Unit.MegaBytes            
     };
 
@@ -30,7 +30,6 @@ public static class AppMetricsRegistery
         MeasurementUnit = Unit.Items,
         DurationUnit = TimeUnit.Milliseconds,
         RateUnit = TimeUnit.Milliseconds,            
-        SamplingType = SamplingType.ExponentiallyDecaying,
-        ExponentialDecayFactor = 0.015
+        Reservoir = new Lazy<IReservoir>(() => new DefaultForwardDecayingReservoir(sampleSize:1028, alpha:0.015))
     };
 }

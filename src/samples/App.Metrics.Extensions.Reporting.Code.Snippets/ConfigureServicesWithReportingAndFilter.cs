@@ -10,7 +10,7 @@ private static void ConfigureMetrics(IServiceCollection services)
 		{
 			var filter = new DefaultMetricsFilter()
 				.WhereType(MetricType.Counter)
-				.WhereMetricTaggedWith("filter-tag1", "filter-tag2")
+				.WhereMetricTaggedWithKey("filter-tag1", "filter-tag2")
 				.WithHealthChecks(true)
 				.WithEnvironmentInfo(true);
 

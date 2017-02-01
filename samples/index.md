@@ -4,6 +4,7 @@
 
 - [AspNet Core API Sample](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Api.Sample)
 - [AspNet Core API Sample - InfluxDB Reporting](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Api.InfluxDB.Sample)
+- [AspNet Core Api Reservoir Types Sample](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Reservoirs.Samples)
 - [AspNet Core MVC Sample](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/Mvc.Sample)
 - [.NET Core Console Application Sample](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/App.Sample)
 

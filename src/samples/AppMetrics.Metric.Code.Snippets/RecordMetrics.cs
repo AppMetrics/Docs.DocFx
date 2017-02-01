@@ -1,13 +1,13 @@
-_metrics.Increment(AppMetricsRegistery.SampleCounter);
-_metrics.Decrement(AppMetricsRegistery.SampleCounter);
+_metrics.Measure.Counter.Increment(AppMetricsRegistery.SampleCounter);
+_metrics.Measure.Counter.Decrement(AppMetricsRegistery.SampleCounter);
 
-_metrics.Gauge(AppMetricsRegistery.Errors, () => 1);
+_metrics.Measure.Gauge.SetValue(AppMetricsRegistery.Errors, () => 1);
 
-_metrics.Update(AppMetricsRegistery.SampleHistogram, 1);
+_metrics.Provider.Histogram.Update(AppMetricsRegistery.SampleHistogram, 1);
 
-_metrics.Mark(AppMetricsRegistery.SampleMeter, 1);
+_metrics.Provider.Meter.Mark(AppMetricsRegistery.SampleMeter, 1);
 
-using(_metrics.Time(AppMetricsRegistery.SampleTimer))
+using(_metrics.Measure.Timer.Time(AppMetricsRegistery.SampleTimer))
 {
     // Do something
 }

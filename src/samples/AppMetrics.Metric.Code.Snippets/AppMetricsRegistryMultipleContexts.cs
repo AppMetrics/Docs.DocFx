@@ -2,29 +2,29 @@ public static class AppMetricsRegistery
 {
     public static class ProcessMetrics
     {
-        private static readonly MetricTags Tags = new MetricTags().With("tag-key", "tag-value");
-        private static readonly string Context = "Process";
+        private static readonly MetricTags CustomTags = new MetricTags().With("tag-key", "tag-value");
+        private static readonly string ContextName = "Process";
 
         public static GaugeOptions SystemNonPagedMemoryGauge = new GaugeOptions
         {
-            Context = Context,
+            Context = ContextName,
             Name = "System Non-Paged Memory",
             MeasurementUnit = Unit.Bytes,
-            Tag = Tags
+            Tags = CustomTags
         };            
 
         public static GaugeOptions ProcessVirtualMemorySizeGauge = new GaugeOptions
         {
-            Context = Context,
+            Context = ContextName,
             Name = "Process Virtual Memory Size",
             MeasurementUnit = Unit.Bytes,
-            Tag = Tags
+            Tags = CustomTags
         };
     }
 
     public static class DatabaseMetrics
     {
-        private static readonly string Context = "Database";
+        private static readonly string ContextName = "Database";
 
         public static TimerOptions SearchUsersSqlTimer = new TimerOptions
         {

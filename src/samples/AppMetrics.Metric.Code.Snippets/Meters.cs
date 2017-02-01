@@ -6,8 +6,8 @@ var cacheHitsMeter = new MeterOptions
     MeasurementUnit = Unit.Calls
 };
 
-_metrics.Mark(cacheHitsMeter); 
-_metrics.Mark(cacheHitsMeter, 10);
+_metrics.Measure.Meter.Mark(cacheHitsMeter); 
+_metrics.Measure.Meter.Mark(cacheHitsMeter, 10);
 
 // Meter Items
 
@@ -17,10 +17,10 @@ var httpStatusMeter = new MeterOptions
     MeasurementUnit = Unit.Calls
 };
 
-_metrics.Mark(httpStatusMeter, "200");
-_metrics.Mark(httpStatusMeter, "500");
-_metrics.Mark(httpStatusMeter, "401");
+_metrics.Measure.Meter.Mark(httpStatusMeter, "200");
+_metrics.Measure.Meter.Mark(httpStatusMeter, "500");
+_metrics.Measure.Meter.Mark(httpStatusMeter, "401");
 
-// Meter Advanced
+// Access a Meter Instance
 
-_metrics.Advanced.Meter(httpStatusMeter).Reset();
+_metrics.Provider.Meter.Instance(httpStatusMeter).Reset();

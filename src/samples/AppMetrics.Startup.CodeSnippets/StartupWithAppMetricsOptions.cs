@@ -5,12 +5,12 @@ public class Startup
         services.AddMvc(options => options.AddMetricsResourceFilter());
         
         services.AddMetrics(options => {
-                options.DefaultContextLabel = "MyContext",
-                options.DefaultSamplingType = SamplingType.SlidingWindow;
+                options.DefaultContextLabel = "MyContext",                
                 options.GlobalTags.Add("env", "stage");
                 options.MetricsEnabled = true;
                 options.ReportingEnabled = true;     	
             })
+            .AddDefaultReservoir(() => new Lazy<IReservoir>(() => new DefaultSlidingWindowReservoir()))
             .AddJsonSerialization()
             .AddHealthChecks()
             .AddMetricsMiddleware();

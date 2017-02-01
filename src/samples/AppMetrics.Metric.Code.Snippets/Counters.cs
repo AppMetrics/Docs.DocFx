@@ -6,10 +6,10 @@ var sentEmailsCounter = new CounterOptions
     MeasurementUnit = Unit.Calls
 };
 
-_metrics.Increment(sentEmailsCounter); // Increment by 1 
-_metrics.Decrement(sentEmailsCounter); // Decrement by 1
-_metrics.Increment(sentEmailsCounter, 10); // Increment by 10
-_metrics.Decrement(sentEmailsCounter, 10); // Decrement by 10
+_metrics.Measure.Counter.Increment(sentEmailsCounter); // Increment by 1 
+_metrics.Measure.Counter.Decrement(sentEmailsCounter); // Decrement by 1
+_metrics.Measure.Counter.Increment(sentEmailsCounter, 10); // Increment by 10
+_metrics.Measure.Counter.Decrement(sentEmailsCounter, 10); // Decrement by 10
 
 // Counter Items
 
@@ -19,10 +19,10 @@ var sentEmailsCounter = new CounterOptions
     MeasurementUnit = Unit.Calls
 };
 
-_metrics.Increment(sentEmailsCounter, "email-a-friend");
-_metrics.Increment(sentEmailsCounter, "forgot-password");
-_metrics.Increment(sentEmailsCounter, "account-verification");
+_metrics.Measure.Counter.Increment(sentEmailsCounter, "email-a-friend");
+_metrics.Measure.Counter.Increment(sentEmailsCounter, "forgot-password");
+_metrics.Measure.Counter.Increment(sentEmailsCounter, "account-verification");
 
-// Counter Advanced
+// Access a Counter intance
 
-_metrics.Advanced.Counter(sentEmailsCounter).Reset();
+_metrics.Provider.Counter.Instance(sentEmailsCounter).Reset();
