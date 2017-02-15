@@ -35,7 +35,7 @@ If your web application is secured with OAuth2, by default, error rates and the 
 
 Below is a sample Grafana dashboard showing showing some of the above metrics.
 
-<img alt="grafana demo" src="../../images/web_host_grafana.jpg" />
+<img alt="grafana demo" src="../../images/web_host_grafana.png" />
 
 > [!NOTE]
 > All [sample dashboards](https://github.com/alhardy/AppMetrics.Samples/tree/master/grafana_dashboards) mentioned in the documenation can be downloaded and imported into Grafana.

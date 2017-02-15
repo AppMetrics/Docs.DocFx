@@ -10,7 +10,7 @@ Histograms measure the statistical distribution of a set of values. In high perf
 
 A histogram with a [uniform reservoir](../../api/App.Metrics.Sampling.UniformReservoir.html) produces [quantiles](https://en.wikipedia.org/wiki/Quantile) which are valid for the entirely of the histogram’s lifetime.
 
-This sampling resevoir can be used when you are interested in long-term measurements, it does not offer a sense of recency over the stream of data being measured.
+This sampling resevoir can be used when you are interested in long-term measurements, it does not offer a sense of recency over the stream of data being measured. Use when you are interested in all the data produced as opposed to a time window snapshot.
 
 The default sample size is 1028.
 
@@ -18,7 +18,7 @@ The default sample size is 1028.
 
 ## Exponentially Decaying Resevoir Sampling
 
-A histogram with an [exponentially decaying reservoir](../../api/App.Metrics.Sampling.ExponentiallyDecayingReservoir.html) produces [quantiles](https://en.wikipedia.org/wiki/Quantile) which are representative of (roughly) the last five minutes of data, providing a sense of recency unlike Unifor Resevoir Sampling.
+A histogram with an [exponentially decaying reservoir](../../api/App.Metrics.Sampling.ExponentiallyDecayingReservoir.html) produces [quantiles](https://en.wikipedia.org/wiki/Quantile) which are representative of approximately the last five minutes of data, providing a sense of recency unlike Unifor Resevoir Sampling.
 
 This sampling resevoir can be used when you are interested in recent changes to the distribution of data rather than a median on the lifetime of the histgram.
 
@@ -28,7 +28,7 @@ The default sample size of 1028 and alpha value of 0.015, offers a 99.9% confide
 
 ## Sliding Window Resevoir Sampling
 
-A Reservoir [implementation](../../api/App.Metrics.Sampling.SlidingWindowReservoir.html) backed by a [fixed-size sliding window](http://web.cs.ucla.edu/~rafail/PUBLIC/100.pdf) that stores only the measurements made in the last N seconds (or other time unit) and therefore like an Exponentially Decaying Resevoir provides a sense of recency. Statistical descritption with the type of resevoir are deterministic, so there is no danger that unfortunate random selections will produce bad approximations.
+A Reservoir [implementation](../../api/App.Metrics.Sampling.SlidingWindowReservoir.html) backed by a [fixed-size sliding window](http://web.cs.ucla.edu/~rafail/PUBLIC/100.pdf) that stores only the measurements made in the last N data entries (or other time unit) and therefore like an Exponentially Decaying Resevoir provides a sense of recency. Statistical descritption with the type of resevoir are deterministic, so there is no danger that unfortunate random selections will produce bad approximations.
 
 The default sample size is 1028.
 

@@ -2,7 +2,7 @@ public static class AppMetricsRegistery
 {
     public static class ProcessMetrics
     {
-        private static readonly MetricTags CustomTags = new MetricTags().With("tag-key", "tag-value");
+        private static readonly MetricTags CustomTags = new MetricTags("tag-key", "tag-value");
         private static readonly string ContextName = "Process";
 
         public static GaugeOptions SystemNonPagedMemoryGauge = new GaugeOptions

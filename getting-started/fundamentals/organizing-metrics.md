@@ -47,6 +47,14 @@ App Metrics provides an extension method on the AppMetricsOptions delegate passi
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsEnvTags.cs?highlight=7,8,9,10,11,12,13)]
 
+## Metric Grouping
+
+Metrics can be assigned a group label when they are defined which applies to the context they are belong to. This allows the group to be reported as the same metric but tagged by the metric name. 
+
+An example use case for grouping is recording an APIs response time per endpoint where a timer is recorded per endpoint but then reported as the same metric name tagged with by the endpoint. This allows us to more easily have a dynamic list of endpoints and their response times when visualising with Grafana for example.
+
+Metric Group names can be applied on all Metric Option types, although it is up to the reporter to apply the appropriate tagging as implemented in the [InfluxDB Reporter](../reporting/index.md#influxdb-reporter)
+
 ### Filtering in process by Tag Keys
 
 The [DefaultMetricsFilter](../../api/App.Metrics.DefaultMetricsFilter.html) can be used to filter Metrics by a Tag Keys. This would be useful if we only wanted to report on a particular Metrics Tags.
