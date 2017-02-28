@@ -8,7 +8,7 @@ Apdex provides three thresholds estimating end user satisfaction, `satisfied`, `
 
 - **Satisfied:** Response time less than or equal to T seconds.
 - **Tolerating:** Response time between T seconds and 4T seconds.
-- **Satisfied:** Response time greater than 4 T seconds.
+- **Frustrating:** Response time greater than 4 T seconds.
 
 App Metrics caculates the counts of the three thresholds using a [Histogram](histograms.md) to sample data recorded. The value T seconds, histogram sample size and [reservoir sampling](../sampling/index.md) type can be configured when creating the `ApdexOptions`.
 
