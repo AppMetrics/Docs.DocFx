@@ -78,7 +78,7 @@ nuget install App.Metrics.Extensions.Owin -pre
 The `App.Metrics.Extensions.Owin.Mvc` package has a dependancy on `App.Metrics.Extensions.Owin` an simply provides some AspNet MVC specific extensions allowing `App.Metrics.Extensions.Owin` to determine the route template of requests.
     
 ```console
-nuget install App.Metrics.Extensions.Mvc -pre
+nuget install App.Metrics.Extensions.Owin.Mvc -pre
    ```       
 
 ----------
@@ -88,7 +88,7 @@ nuget install App.Metrics.Extensions.Mvc -pre
 The `App.Metrics.Extensions.Owin.WebApi` package has a dependancy on `App.Metrics.Extensions.Owin` an simply provides some AspNet WebApi specific extensions allowing `App.Metrics.Extensions.Owin` to determine the route template of requests.
     
 ```console
-nuget install App.Metrics.Extensions.WebApi -pre
+nuget install App.Metrics.Extensions.Owin.WebApi -pre
    ```       
 
 ----------
