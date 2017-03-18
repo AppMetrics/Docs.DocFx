@@ -18,6 +18,7 @@ These configuration options include:
 - **PingEndpointEnabled**: Allows enabling/disabling of the `/ping` endpoint, when disabled will result in a 404 status code, the default is true.
 - **ApdexTrackingEnabled**: Allows enabling/disabling of calculating the [Apdex](../metric-types/apdex.md) score of a web application, the default is true.
 - **ApdexTSeconds**: The [Apdex](../metric-types/apdex.md) T seconds value used in calculating the score on the samples collected.
+- **IgnoredHttpStatusCodes**: Allows specific http status codes to be ignored when reporting on request failes, e.g. You might not want to alert on 400 status codes or monitor 404 status codes.
 
 ## Changing options using `Action<AspNetMetricsOptions>`
 

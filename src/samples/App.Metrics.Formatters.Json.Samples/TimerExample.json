@@ -20,7 +20,8 @@
                 "percentile99": 637.3094,
                 "percentile999": 637.3095,
                 "sampleSize": 20,
-                "stdDev": 108.9519
+                "stdDev": 108.9519,
+                "sum": 5595
             },
             "rate": {
                 "fifteenMinuteRate": 0.0018,
@@ -28,8 +29,7 @@
                 "meanRate": 0.0001,
                 "oneMinuteRate": 5.1076
             },
-            "rateUnit": "ms",
-            "totalTime": 5595,
+            "rateUnit": "ms",            
             "name": "GET api/values",
             "unit": "Requests"
         }

@@ -12,33 +12,51 @@ Monitors the [Application Performance Index](../metric-types/apdex.md) of the we
 
 The error middleware records the following error metrics:
 
-1. A [Meter](../metric-types/meters.md) measuring the error rate per route tagged by http status code
-2. A [Meter](../metric-types/meters.md) measuring the web applications overall error rate tagged by http status code
-3. A [Gauge](../metric-types/gauges.md) measuring the web applications overall percentage of failing requests. This is calculated by using a hit percentage gauge which calculates the percentage of failed requests using the one minute rate of error requests and one minute rate overall web requests.
+1. The total number of error requests per http status code.
+2. The percentage of overall error requests and percentage of each endpoints error requests. *This is calculated by using a hit percentage gauge which calculates the percentage of failed requests using the one minute rate of error requests and one minute rate overall web requests.*
+3. An overall error request rate and error request rate per endpoint.
 
-## Throughput & Web Transaction Time
+## Throughput & Response Times
 
-To measure the throughput and web transaction times within a web application, [Timers](../metric-types/timers.md) are registered to record:
+To measure the throughput and response times within a web application, [Timers](../metric-types/timers.md) are registered to record:
 
 1. The overall throughput and request duration of all routes
 2. The throughput and request duration per route within the web application
 
 ## POST and PUT request sizes
 
-A [Histogram](../metric-types/histograms.md) is used to track POST and PUT requests sizes of incomming HTTP requests.
+[Histograms](../metric-types/histograms.md) are used to track POST and PUT requests sizes of incomming HTTP requests.
 
 ## OAuth2
 
-If your web application is secured with OAuth2, by default, error rates and the throughput (overall and per route) is tracked on a per client basis. This provides some useful insights into clients of your APIs.
+If your web application is secured with OAuth2, by default App.Metrics will record metrics on a per client basis. This provides some useful insights into clients of your APIs.
 
-## Sample Dashboard
+1. An overall and per endpoint request rate for each client.
+2. An overall and per endpoint error rate for each client.
+3. The POST and PUT request sizes for each client.
 
-Below is a sample Grafana dashboard showing showing some of the above metrics.
+## Generic Dashboards
 
-<img alt="grafana demo" src="../../images/web_host_grafana.png" />
+Out of box, App.Metrics includes [generic Grafana web application dashboards](https://github.com/alhardy/AppMetrics/tree/1.0.0/sandbox):
+
+### Web Application Monitoring
+
+Includes dynamic template variables to filter graphs by application, datasource and environment.
+
+<img alt="grafana web demo" src="../../images/generic_grafana_dashboard_demo.gif" />
+
+> Grab the dashboard [here](https://github.com/alhardy/AppMetrics/blob/1.0.0/sandbox/App.Metrics.Sandbox-InfluxDB-GenericWeb.json)
+
+### OAuth2 Client Monitoring in a Web Application
+
+Includes dynamic template variables to filter graphs by application, datasource and environment, client_id and endpoint.
+
+<img alt="grafana web oauth2 demo" src="../../images/generic_grafana_oauth2_dashboard_demo.gif" />
+
+> Grab the dashboard [here](https://github.com/alhardy/AppMetrics/blob/1.0.0/sandbox/App.Metrics.Sandbox-InfluxDB-GenericWebOAuth2.json)
 
 > [!NOTE]
-> All [sample dashboards](https://github.com/alhardy/AppMetrics.Samples/tree/master/grafana_dashboards) mentioned in the documenation can be downloaded and imported into Grafana.
+> Find other [sample Grafana dashboards](https://github.com/alhardy/AppMetrics.Samples/tree/master/grafana_dashboards) for App.Metrics these can be downloaded and imported into Grafana.
 
 ## Related Docs
 
