@@ -27,7 +27,7 @@ Or via the fluent building in your startup code:
 
 App Metrics includes some pre-defined health checks which can be registered on startup as shown below.
 
-[!code-csharp[Main](../../src/samples/AppMetrics.HealthCheck.Code.Snippets/PredefinedHealthChecks.cs?highlight=10,12,14)]
+[!code-csharp[Main](../../src/samples/AppMetrics.HealthCheck.Code.Snippets/PredefinedHealthChecks.cs?highlight=10,12,14,16,18)]
 
 ### Apdex
 
