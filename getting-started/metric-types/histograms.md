@@ -20,9 +20,19 @@ Which for example when using the [JSON formatter](../intro.md#configuring-a-web-
 
 In high performance applications it is not possible to keep the entire data stream of a histogram in memory. To work around this [resevoir sampling](../sampling/index.md) algorithms allow us to maintain a small, manageable resevoir which is statistically representative of an entire data stream.
 
-> [!NOTE]
-> ### Just a Placeholder for now..
-> Implement and document  [Apdex Score](https://en.wikipedia.org/wiki/Apdex)
+Out-of-box App.Metrics supports three types of [reservoir sampling](../sampling/index.md), Uniform, Exponentially Decaying and Sliding Window. By default all timers will use Exponentially Decaying Reservoir Sampling.
+
+It is possible to change the reservoir both globally for all metrics and for an individual metric:
+
+#### Change the default Reservoir Globally
+
+[!code-csharp[Main](../../src/samples/AppMetrics.Metric.Code.Snippets/Sampling.cs?start=1&end=10)]
+
+#### Set the Reservoir for a specific metric
+
+[!code-csharp[Main](../../src/samples/AppMetrics.Metric.Code.Snippets/Sampling.cs?start=11)]
+
+> Note: You can also implement custom Reservoirs by implementing `IReservoir`
 
 ## Related Docs
 
