@@ -37,7 +37,7 @@ If your web application is secured with OAuth2, by default App.Metrics will reco
 
 ## Generic Dashboards
 
-Out of box, App.Metrics includes [generic Grafana web application dashboards](https://github.com/alhardy/AppMetrics/tree/1.0.0/sandbox):
+Out of box, App.Metrics includes generic Grafana web application dashboards, See the [InfluxDB](https://github.com/alhardy/AppMetrics.Extensions.InfluxDB) and [Elasticsearch](https://github.com/alhardy/AppMetrics.Extensions.Elasticsearch) extension repos.
 
 ### Web Application Monitoring
 
@@ -45,15 +45,11 @@ Includes dynamic template variables to filter graphs by application, datasource 
 
 <img alt="grafana web demo" src="../../images/generic_grafana_dashboard_demo.gif" />
 
-> Grab the dashboard [here](https://github.com/alhardy/AppMetrics/blob/1.0.0/sandbox/App.Metrics.Sandbox-InfluxDB-GenericWeb.json)
-
 ### OAuth2 Client Monitoring in a Web Application
 
 Includes dynamic template variables to filter graphs by application, datasource and environment, client_id and endpoint.
 
 <img alt="grafana web oauth2 demo" src="../../images/generic_grafana_oauth2_dashboard_demo.gif" />
-
-> Grab the dashboard [here](https://github.com/alhardy/AppMetrics/blob/1.0.0/sandbox/App.Metrics.Sandbox-InfluxDB-GenericWebOAuth2.json)
 
 > [!NOTE]
 > Find other [sample Grafana dashboards](https://github.com/alhardy/AppMetrics.Samples/tree/master/grafana_dashboards) for App.Metrics these can be downloaded and imported into Grafana.

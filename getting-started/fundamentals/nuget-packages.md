@@ -58,6 +58,14 @@ The `App.Metrics.Extensions.Reporting.InfluxDB` package is an App Metrics report
 nuget install App.Metrics.Extensions.Reporting.InfluxDB -pre
    ```   
 
+----------
+
+The `App.Metrics.Extensions.Reporting.Elasticsearch` package is an App Metrics report provider which will flush metrics to a [Elasticsearch](https://www.elastic.co/products/elasticsearch) at a specified interval.
+
+```console
+nuget install App.Metrics.Extensions.Reporting.Elasticsearch -pre
+   ```   
+
 ## Pre AspNet Core Web Applications
 
 - [Source Code](https://github.com/alhardy/AppMetrics.Owin)

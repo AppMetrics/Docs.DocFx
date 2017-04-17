@@ -4,12 +4,9 @@
       "src": [
         {
           "files": [
-            "**/App.Metrics/project.json",
-            "**/App.Metrics.Extensions.Middleware/project.json",
-            "**/App.Metrics.Extensions.Reporting.Console/project.json",
-            "**/App.Metrics.Extensions.Reporting.TextFile/project.json",
-            "**/App.Metrics.Extensions.Reporting.InfluxDB/project.json",
-            "**/App.Metrics.Formatters.Json/project.json"
+            "**/App.Metrics/App.Metrics.csproj",
+            "**/App.Metrics.Extensions.Middleware/App.Metrics.Extensions.Middleware.csproj",            
+            "**/App.Metrics.Formatters.Json/App.Metrics.Formatters.Json.csproj"
           ],
           "exclude": [
             "**/obj/**",
