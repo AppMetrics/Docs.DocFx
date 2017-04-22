@@ -30,7 +30,7 @@
   href: web-apps/index.md     
 - name: Filtering Metrics
   href: filtering/index.md    
-- name: Resevoir Sampling
+- name: Reservoir Sampling
   href: sampling/index.md      
 - name: Reporting & Visualization
   items:

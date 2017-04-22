@@ -49,8 +49,8 @@ Each metric being measured should be described through one of the below, which p
 - `GaugeOptions`: Allows the metric context, metric name, unit of measurement, and tags to be specified.
 - `CounterOptions`: Allows the metric context, metric name, unit of measurement, and tags to be specified.
 - `MeterOptions`: Allows the metric context, metric name, unit of measurement, rate unit and tags to be specified.
-- `TimerOptions`: Allows the metric context, metric name, unit of measurement, rate unit, duration unit, sampling type and tags to be specified. Also allows a custom `IResevoir` to be used for sampling.
-- `HistogramOptions`: Allows the metric context, metric name, unit of measurement, sampling type and tags to be specified. Also allows a custom `IResevoir` to be used for sampling.
+- `TimerOptions`: Allows the metric context, metric name, unit of measurement, rate unit, duration unit, sampling type and tags to be specified. Also allows a custom `IReservoir` to be used for sampling.
+- `HistogramOptions`: Allows the metric context, metric name, unit of measurement, sampling type and tags to be specified. Also allows a custom `IReservoir` to be used for sampling.
 
 > [!NOTE]
 > See the [Api Documentation](../api/App.Metrics.Core.Options.html) for details on each of the above.

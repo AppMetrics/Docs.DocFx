@@ -16,11 +16,11 @@ Which for example when using the [JSON formatter](../intro.md#configuring-a-web-
 
 [!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/HistogramExample.json)]    
 
-## Resevoir Sampling
+## Reservoir Sampling
 
-In high performance applications it is not possible to keep the entire data stream of a histogram in memory. To work around this [resevoir sampling](../sampling/index.md) algorithms allow us to maintain a small, manageable resevoir which is statistically representative of an entire data stream.
+In high performance applications it is not possible to keep the entire data stream of a histogram in memory. To work around this [reservoir sampling](../sampling/index.md) algorithms allow us to maintain a small, manageable reservoir which is statistically representative of an entire data stream.
 
-Out-of-box App.Metrics supports three types of [reservoir sampling](../sampling/index.md), Uniform, Exponentially Decaying and Sliding Window. By default all timers will use Exponentially Decaying Reservoir Sampling.
+Out-of-box App.Metrics supports three types of [reserreservoirvoir sampling](../sampling/index.md), Uniform, Exponentially Decaying and Sliding Window. By default all timers will use Exponentially Decaying Reservoir Sampling.
 
 It is possible to change the reservoir both globally for all metrics and for an individual metric:
 
