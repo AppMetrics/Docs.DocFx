@@ -14,6 +14,7 @@ These configuration options include:
 - **MetricsTextEndpoint**: Allows customization of the endpoint which will report a snapshot of the applications current metric measurements in a hummanized format. The default path is `/metrics-text`
 - **MetricsTextEndpointEnabled**: Allows enabling/disabling of the `/metrics-text` endpoint, when disabled will result in a 404 status code, the default is true.
 - **OAuth2TrackingEnabled**: Allows recording of all OAuth2 Client tracking to be disabled. When enabled middleware is configured to track request rates, an overall percentage of requests per Client / per endpoint, and error rates per Client.
+- **DefaultTrackingEnabled**: Allows enabling/disabling of the default [tracking middleware](https://github.com/alhardy/AppMetrics/tree/master/src/App.Metrics.Extensions.Middleware). If disabled all metrics endpoints are still enabled, by default all tracking middleware is enabled.
 - **PingEndpoint**: Allows customization of the ping endpoint which simply returns pong. The default path is `/ping`
 - **PingEndpointEnabled**: Allows enabling/disabling of the `/ping` endpoint, when disabled will result in a 404 status code, the default is true.
 - **ApdexTrackingEnabled**: Allows enabling/disabling of calculating the [Apdex](../metric-types/apdex.md) score of a web application, the default is true.
