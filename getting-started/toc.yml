@@ -31,10 +31,4 @@
 - name: Filtering Metrics
   href: filtering/index.md    
 - name: Reservoir Sampling
-  href: sampling/index.md      
-- name: Reporting & Visualization
-  items:
-    - name: Reporting
-      href: reporting/index.md
-    - name: Visualization
-      href: reporting/Visualization.md     
+  href: sampling/index.md

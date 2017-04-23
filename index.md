@@ -1,4 +1,4 @@
-## What is App Metrics?
+# What is App Metrics?
 
 App Metrics is an open-source and cross-platform .NET library used to record metrics within an application. App Metrics can run on .NET Core or on the full .NET framework also supporting .NET 4.5.2. 
 
@@ -10,7 +10,7 @@ App Metrics also provides a health checking system allowing you to monitor the h
 
 For web applications using AspNet MVC or AspNet Web API (pre .NET Core), App Metrics provides [Owin Middleware](https://github.com/alhardy/AppMetrics.Owin) as a replacement to [AspNet Core Middleware](https://www.nuget.org/packages/App.Metrics.Extensions.Middleware/) targetting .NET 4.5.2.
 
-## Why build App Metrics?
+# Why build App Metrics?
 
 App Metrics was built to provide an easy way to capture the desired metrics within an application whilst having minimal impact on the performance of your application, and allowing these metrics to be reported to the desired respository through the library's reporting capabilities.
 

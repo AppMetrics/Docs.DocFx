@@ -30,7 +30,9 @@
       {
         "files": [
           "getting-started/**.md",
-          "getting-started/**/toc.yml",          
+          "getting-started/**/toc.yml",
+          "reporting-and-visualization/**.md",
+          "reporting-and-visualization/**/toc.yml",          
           "samples/**.md",
           "samples/**/toc.yml",          
           "toc.yml",

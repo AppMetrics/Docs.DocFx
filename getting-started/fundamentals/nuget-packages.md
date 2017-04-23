@@ -66,6 +66,14 @@ The `App.Metrics.Extensions.Reporting.Elasticsearch` package is an App Metrics r
 nuget install App.Metrics.Extensions.Reporting.Elasticsearch -pre
    ```   
 
+----------
+
+The `App.Metrics.Formatters.Prometheus` package enables the [metrics](https://alhardy.github.io/app-metrics-docs/getting-started/fundamentals/middleware-configuration.html) endpoint to serve metrics in [Prometheus](https://prometheus.io/) format. Supports plain text and protobuf.
+
+```console
+nuget install App.Metrics.Formatters.Prometheus -pre
+   ```   
+
 ## Pre AspNet Core Web Applications
 
 - [Source Code](https://github.com/alhardy/AppMetrics.Owin)

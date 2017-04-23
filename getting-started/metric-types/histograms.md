@@ -32,7 +32,8 @@ It is possible to change the reservoir both globally for all metrics and for an 
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Metric.Code.Snippets/Sampling.cs?start=11)]
 
-> Note: You can also implement custom Reservoirs by implementing `IReservoir`
+> [!NOTE]
+> You can also implement custom Reservoirs by implementing `IReservoir`
 
 ## Related Docs
 
