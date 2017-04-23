@@ -53,3 +53,6 @@ Health Check results can be returned as follows:
 
 > [!NOTE]
 > An external monitoring tools could be used to request the `/health` endpoint at a configured interval to continously monitor and alert the health of your API.
+
+### Related Articles
+- [Step by step guide to Health Checks](https://al-hardy.blog/2017/04/17/asp-net-core-health-checking/)

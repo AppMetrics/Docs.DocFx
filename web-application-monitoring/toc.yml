@@ -1,0 +1,12 @@
+- name: Fundamentals
+  items:
+    - name: Nuget Packages
+      href: nuget-packages.md      
+    - name: Configuration
+      href: configuration.md  
+    - name: AspNet Core Middleware
+      href: middleware.md     
+- name: Visualization
+  items:
+    - name: Grafana
+      href: visualization-grafana.md

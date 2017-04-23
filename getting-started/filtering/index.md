@@ -35,12 +35,10 @@ Metrics can be filtered by:
 - Context
 - Metric Name (Exact match or where name starts with)
 
-> [!NOTE]
+> [!TIP]
 > Custom Metric Filters can be implemented rather than using the [DefaultMetricsFilter](../../api/App.Metrics.DefaultMetricsFilter.html) by implementing [IMetricsFilter](../../api/App.Metrics.IMetricsFilter.html) 
 
 ## Next Steps
 
-- [Metric Types](../metric-types/index.md)
+- [Metric Types](../metric-types/overview.md)
 - [Organizing Metrics - Contexts and Tagging](../fundamentals/organizing-metrics.md)
-- [Reporting Metrics](../reporting/index.md)
-- [Sample Applications](../../samples/index.md)

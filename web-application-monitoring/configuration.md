@@ -1,6 +1,6 @@
 # AspNet Middleware Configuration Options
 
-App Metrics includes an [AspNet Middleware Extension](../intro.md) which will record things like error rates per endpoint and an overall rate, request rates per endpoint and an overall rate etc.
+App Metrics includes an AspNet Middleware Extension package which will record web metrics such as, error rates and percentages, per endpoint and an overall request rates etc.
 
 Configuration options are accessible through the `AddMetricsMiddleware` extension on the `IMetricsHostBuilder`. 
 
@@ -17,26 +17,31 @@ These configuration options include:
 - **DefaultTrackingEnabled**: Allows enabling/disabling of the default [tracking middleware](https://github.com/alhardy/AppMetrics/tree/master/src/App.Metrics.Extensions.Middleware). If disabled all metrics endpoints are still enabled, by default all tracking middleware is enabled.
 - **PingEndpoint**: Allows customization of the ping endpoint which simply returns pong. The default path is `/ping`
 - **PingEndpointEnabled**: Allows enabling/disabling of the `/ping` endpoint, when disabled will result in a 404 status code, the default is true.
-- **ApdexTrackingEnabled**: Allows enabling/disabling of calculating the [Apdex](../metric-types/apdex.md) score of a web application, the default is true.
-- **ApdexTSeconds**: The [Apdex](../metric-types/apdex.md) T seconds value used in calculating the score on the samples collected.
+- **ApdexTrackingEnabled**: Allows enabling/disabling of calculating the [Apdex](../getting-started/metric-types/apdex.md) score of a web application, the default is true.
+- **ApdexTSeconds**: The [Apdex](../getting-started/metric-types/apdex.md) T seconds value used in calculating the score on the samples collected.
 - **IgnoredHttpStatusCodes**: Allows specific http status codes to be ignored when reporting on request failes, e.g. You might not want to alert on 400 status codes or monitor 404 status codes.
 
-## Changing options using `Action<AspNetMetricsOptions>`
+## Fluent configuration using `Action<AspNetMetricsOptions>`
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetOptions.cs?highlight=10)]      	     
+[!code-csharp[Main](../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetOptions.cs?highlight=10)]
 
-## Changing options using `Microsoft.Extensions.Configuration.IConfiguration`
+> [!TIP]
+> If you require some configuration to be environment specific (e.g. disabling metrics in a uat environment) and therefore would pefer some options in `appsettings`, the middleware extension has a couple of overrides supporting options from both `Action<AspNetMetricsOptions>` and `Microsoft.Extensions.Configuration.IConfiguration`.
+
+## Configuration using `Microsoft.Extensions.Configuration.IConfiguration`
+
+An alternative to configuring options through `Action<AspNetMetricsOptions>`, options can also be registered using Microsoft's configuration extensions for example providing an app settings section.
 
 Below is an example `Startup.cs` using `appsettings.json` as a configuration source:
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAspNetIConfiguration.cs?highlight=22)
+[!code-csharp[Main](../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsIConfiguration.cs?highlight=22)]    
 
-And the `appsettings.json` file
+And the `appsettings.json` file may looking something like the following:
 
-[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/AspNetOptions.json)]
+[!code-json[Main](../src/samples/App.Metrics.Formatters.Json.Samples/AspNetOptions.json)]
 
 > [!NOTE]
-> To have routes measured a resource filter is required to extract the route template of each request, add the resource filter when configuring Mvc options i.e.
+> To have ASP.NET Core MVC route names used for metric names, a resource filter is required to determine the matching route template from requests, add the resource filter when configuring the ASP.NET Core MVC services.
 > 
 > ```csharp
 > services.AddMvc(options => options.AddMetricsResourceFilter());
@@ -45,4 +50,4 @@ And the `appsettings.json` file
 ## Next Steps
 
 - [App MetricsConfiguration Options](configuration.md)
-- [Sample Applications](../../samples/index.md)
+- [Sample Applications](../samples/index.md)

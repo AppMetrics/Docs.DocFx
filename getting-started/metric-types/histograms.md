@@ -37,5 +37,6 @@ It is possible to change the reservoir both globally for all metrics and for an 
 
 ## Related Docs
 
+- [Reservoir Sampling](../sampling/index.md)
 - [Getting Started](../intro.md#measuring-application-metrics)
 - [Configuration](../fundamentals/configuration.md)

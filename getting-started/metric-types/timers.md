@@ -24,5 +24,6 @@ Which for example when using the [JSON formatter](../intro.md#configuring-a-web-
 
 ## Related Docs
 
+- [Reservoir Sampling](../sampling/index.md)
 - [Getting Started](../intro.md#measuring-application-metrics)
 - [Configuration](../fundamentals/configuration.md)

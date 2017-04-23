@@ -39,6 +39,5 @@ In cases where it's required to have some settings in a configuration file but o
 
 ## Next Steps
 
-- [AspNet Core Middleware Configuration Options](middleware-configuration.md)
+- [AspNet Core Middleware Configuration Options](../../web-application-monitoring/configuration.md)
 - [Organizing Metrics](organizing-metrics.md)
-- [Sample Applications](../../samples/index.md)

@@ -1,17 +1,15 @@
 - name: Getting Started
   href: intro.md
 - name: Fundamentals
-  items:
-    - name: Nuget Packages
-      href: fundamentals/nuget-packages.md      
+  items:    
     - name: Configuration
-      href: fundamentals/configuration.md  
-    - name: AspNet Core Middleware Configuration
-      href: fundamentals/middleware-configuration.md 
+      href: fundamentals/configuration.md      
     - name: Organizing Metrics
       href: fundamentals/organizing-metrics.md  
-- name: Metric Types  
+- name: Metric Types    
   items:
+    - name: Overview
+      href: metric-types/overview.md
     - name: Apdex
       href: metric-types/apdex.md
     - name: Gauges
@@ -25,9 +23,7 @@
     - name: Timers
       href: metric-types/timers.md   
 - name: Health Checks
-  href: health-checks/index.md    
-- name: Web Application Monitoring
-  href: web-apps/index.md     
+  href: health-checks/index.md
 - name: Filtering Metrics
   href: filtering/index.md    
 - name: Reservoir Sampling

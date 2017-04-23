@@ -92,8 +92,7 @@ h1 {
     }
 
 h1, h2, h3, h4, h5, h6, span.xref {
-    word-wrap: break-word;
-    word-break: break-all;
+    word-wrap: break-word;    
 }
 
     h1 mark,
@@ -781,7 +780,6 @@ body .toc {
 
     .toc-filter > input {
         box-sizing: border-box;
-        font-size: 1.3rem;
         height: 36px;
         line-height: 1.8;
         padding: 0 10px;
@@ -1189,17 +1187,19 @@ pre {
 }
 
 .NOTE h5 {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .NOTE {
     color: #7A8996;
     background: #FBFCFD;
     border: 1px solid;
-    font-size: 1.2rem;
-    line-height: 1.4;
-    padding: 1.6em;
+    font-size: .875rem;
+    line-height: 1.4;    
+    padding: 1em;
     border-radius: 5px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
     .NOTE > :first-child {
@@ -1227,33 +1227,34 @@ pre {
 }
 
 .TIP h5 {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .TIP {
     color: #3c763d;
     border-color: #3c763d;
     background: #dff0d8;
-    border: 1px solid;
-    font-size: 1.1rem;
+    border: 1px solid;    
     line-height: 1.4;
-    padding: 1.6em;
+    padding: 1em;
     border-radius: 5px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
-    .TIP > :first-child {
-        margin: 0 0 8px;
-        padding: 0;
-    }
+.TIP > :first-child {
+    margin: 0 0 8px;
+    padding: 0;
+}
 
-    .TIP p {
-        font-size: 1.4rem !important;
-        -webkit-margin-before: 0;
-        -webkit-margin-after: 0;
-    }
+.TIP p {
+    font-size: .875rem !important;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
 
 .NOTE p {
-    font-size: 1.4rem !important;
+    font-size: .875rem !important;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
 }

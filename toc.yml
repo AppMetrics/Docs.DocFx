@@ -2,9 +2,12 @@
   href: index.md
 - name: Getting Started
   href: getting-started/
-- name: Reporting & Visualization
-  href: reporting-and-visualization/  
-  homepage: reporting-and-visualization/index.md
+- name: Web Monitoring
+  href: web-application-monitoring/  
+  homepage: web-application-monitoring/index.md
+- name: Reporting
+  href: reporting/  
+  homepage: reporting/index.md
 - name: Api Documentation
   href: api/
   homepage: api/index.md

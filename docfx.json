@@ -31,8 +31,10 @@
         "files": [
           "getting-started/**.md",
           "getting-started/**/toc.yml",
-          "reporting-and-visualization/**.md",
-          "reporting-and-visualization/**/toc.yml",          
+          "reporting/**.md",
+          "reporting/**/toc.yml",      
+          "web-application-monitoring/**.md",
+          "web-application-monitoring/**/toc.yml",          
           "samples/**.md",
           "samples/**/toc.yml",          
           "toc.yml",
