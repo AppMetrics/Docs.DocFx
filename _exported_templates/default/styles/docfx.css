@@ -26,7 +26,7 @@ body {
 }
 
 strong {
-    color: #03A9F4;
+    color: #0277BD;
 }
 
 span.app-name {
@@ -49,7 +49,7 @@ article, aside, footer, header, nav, section {
 
 button,
 a {
-    color: #03A9F4;
+    color: #0277BD;
     cursor: pointer;
 }
 
@@ -57,15 +57,15 @@ a {
     button:focus,
     a:hover,
     a:focus {
-        color: #039BE5;
+        color: #0288D1;
         text-decoration: underline;
     }
 
     a.disable,
     a.disable:hover {
-        text-decoration: none;
+        text-decoration: underline;
         cursor: default;
-        color: #01579B;
+        color: #0288D1;
     }
 
 /* workaround for leave space for fixed navbar with # anchor url*/
@@ -278,7 +278,7 @@ article {
         clear: both;
         font-family: segoe-ui_light,Segoe UI Light,Segoe WP,Helvetica Neue,Helvetica,sans-serif;
         color: #343E47;
-        font-size: 3.7rem;
+        font-size: 2.5rem;
         line-height: 1.5;
         margin-bottom: 3%;
     }
@@ -288,6 +288,7 @@ article {
         color: #343E47;
         font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 400;
+        font-size: 1.75rem;
         line-height: 1.2;
         margin-bottom: 3%;
         -webkit-margin-before: 0.83em;
@@ -1156,7 +1157,7 @@ code, kbd, pre, samp {
 
 code {
     color: #343E47;
-    font-size: 1.3rem;
+    font-size: .875rem;
     border-radius: 2px;
     display: inline-block;
     padding: 3px 7px;
@@ -1166,7 +1167,7 @@ code {
 }
 
 pre {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
     /* For code snippet line highlight */
