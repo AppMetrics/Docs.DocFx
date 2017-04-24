@@ -243,6 +243,7 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
+    font-size: .95rem;
 }
 
     header .navbar {
@@ -1017,7 +1018,7 @@ footer {
     }
 
     header {
-        position: static;
+        position: static;        
     }
 
     .topnav {
