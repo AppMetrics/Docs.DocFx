@@ -8,6 +8,12 @@ App Metrics provides various metric types to measure things such as the rate of 
 
 App Metrics also provides a health checking system allowing you to monitor the health of your application through user defined checks.
 
+# What's the Performance Overhead?
+
+The performance overhead in terms of processing is minimal, see the [benchmark results](https://github.com/alhardy/AppMetrics/tree/master/benchmarks/App.Metrics.Benchmarks.Runner/BenchmarkDotNet.Artifacts/results) for the overhead on recording metrics.
+
+The memory overhead is also minimal, but will depend on the number of metrics your're tracking. However even with a very large number of metrics the memory overhead is still minimal. Histograms consume the most memory in terms of metric types as they keep a stream of data in memory to measure the statistical distribution of values, although App Metrics uses [Reservoir Sampling](getting-started/sampling/index.md) to work around this which allows us to maitain a small, manageable reservoir representing the entire data stream.
+
 # Why build App Metrics?
 
 App Metrics was built to provide an easy way to capture the desired metrics within an application whilst having minimal impact on the performance of your application, and allowing these metrics to be reported to the desired respository through the library's reporting capabilities.

@@ -8,7 +8,7 @@ The [sample console application](https://github.com/alhardy/AppMetrics.Samples/t
 
 ### InfluxDB Demo Dashboard
 
-<img alt="grafana demo" src="../../images/grafana_console.gif" />
+<img alt="grafana demo" src="https://raw.githubusercontent.com/alhardy/app-metrics-docs/master/images/grafana_console.gif" />
 
 ### Web Monitoring
 
