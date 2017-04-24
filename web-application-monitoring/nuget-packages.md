@@ -37,7 +37,7 @@ The `App.Metrics.Formatters.Json` package provides the abliity to JSON serialize
 nuget install App.Metrics.Formatters.Json
    ```      
 
-# Pre AspNet Core Web Applications
+# Pre ASP.NET Core Web Applications
 
 For those not yet using ASP.NET Core, packages also exist providing the same functionality for OWIN, ASP.NET MVC and ASP.NET Web API
 
