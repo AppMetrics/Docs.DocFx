@@ -28,7 +28,7 @@ nuget install App.Metrics.Extensions.Mvc
 
 ## App.Metrics.Formatters.Json
 
-The `App.Metrics.Formatters.Json` package provides the abliity to JSON serializer/deserializer metrics recorded by your application, for example allowing `/metrics` to return a JSON representation metrics.
+The `App.Metrics.Formatters.Json` package provides the abliity to JSON serialize/deserialize metrics recorded by your application, for example allowing `/metrics` to return a JSON representation metrics.
 
 > [!TIP]
 > Using [Prometheus](https://prometheus.io/)? There is an App Metrics [Prometheus extension package](https://www.nuget.org/packages/App.Metrics.Formatters.Prometheus) providing the ability to format metrics in prometheus format, supports protobuf and plain text.

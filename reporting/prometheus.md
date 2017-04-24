@@ -1,5 +1,13 @@
 # Prometheus Reporter
 
-The [App.Metrics.Formatters.Prometheus](https://www.nuget.org/packages/App.Metrics.Formatters.Prometheus) package enables the [metrics](../getting-started/intro.md#configuring-a-web-host) endpoint to serve metrics in [Prometheus](https://prometheus.io/) format. Supports plain text and protobuf.
+[Prometheus](https://prometheus.io/) promotes a *Pull* based approach rather than *Push*, therefore App Metrics does not include a reporter to push metrics, but rather supports formatting metric data in Prometheus format.
 
-*TODO: Provide sample code*
+Prometheus formatting is provided by the [App.Metrics.Formatters.Prometheus](https://www.nuget.org/packages/App.Metrics.Formatters.Prometheus) nuget package, when configured the `/metrics` endpoint will serve metrics in Prometheus format for collection.
+
+1. First see the [getting started](../getting-started/intro.md) guide.
+
+2. Configure Prometheus formatting as explained in the [formatter documentation](../web-application-monitoring/formatters/prometheus-formatter.md)
+
+### Web Monitoring
+
+See the [**generic Grafana web dashboards**](../web-application-monitoring/visualization-grafana.md) provided.

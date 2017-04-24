@@ -17,5 +17,4 @@ The extension methods takes the `IApplicationLifetime` instance which is used to
 > [!TIP]
 > **Don't see the reporter your looking for?**
 >
->
 > [Open a new github issue](https://github.com/alhardy/AppMetrics.Reporters/issues/new) to discuss adding support.

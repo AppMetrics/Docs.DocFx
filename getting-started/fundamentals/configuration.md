@@ -40,4 +40,5 @@ In cases where it's required to have some settings in a configuration file but o
 ## Next Steps
 
 - [AspNet Core Middleware Configuration Options](../../web-application-monitoring/configuration.md)
+- [AspNet Core Middleware Formatters](../../web-application-monitoring/formatters/overview.md)
 - [Organizing Metrics](organizing-metrics.md)

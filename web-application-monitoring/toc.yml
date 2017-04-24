@@ -5,7 +5,15 @@
     - name: Configuration
       href: configuration.md  
     - name: AspNet Core Middleware
-      href: middleware.md     
+      href: middleware.md
+- name: Formatters 
+  items:
+    - name: Overview
+      href: formatters/overview.md
+    - name: JSON
+      href: formatters/json-formatter.md
+    - name: Prometheus
+      href: formatters/prometheus-formatter.md    
 - name: Visualization
   items:
     - name: Grafana

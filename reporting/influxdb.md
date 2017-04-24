@@ -1,6 +1,6 @@
-## InfluxDB Reporter
+# InfluxDB Reporter
 
-Metrics can be reported to [InfluxDB](https://www.influxdata.com/products/open-source/#influxdb) using the [InfluxDB Reporter package](https://www.nuget.org/packages/App.Metrics.Extensions.Reporting.InfluxDB/).
+Metrics can be reported to [InfluxDB](https://www.influxdata.com/products/open-source/#influxdb) using the [App.Metrics.Extensions.Reporting.InfluxDB](https://www.nuget.org/packages/App.Metrics.Extensions.Reporting.InfluxDB/) nuget package.
 
 1. First see the [getting started](../getting-started/intro.md) guide.
 

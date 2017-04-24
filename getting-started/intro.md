@@ -20,6 +20,9 @@ What does the above configuration do?
 	3.  `/metrics-text`: Renders a Humannized version of the metric data captured by the application
 	4.  `/health`: Executes all health checks registered to determin the health status of the application
 
+> [!TIP]
+> See the App Metrics Middleware Formatter docs on how to [implement a custom formatter](../web-application-monitoring/formatters/overview.md#implementing-a-custom-formatter) or what other [formatting options are available](../web-application-monitoring/formatters/overview.md#available-formatters).
+
 ## Configuring a Console Application
 
 1. Add the [App.Metrics](https://www.nuget.org/packages/App.Metrics/) and [App.Metrics.Extensions.Reporting.Console](https://www.nuget.org/packages/App.Metrics.Extensions.Reporting.Console/) nuget packages to your project.

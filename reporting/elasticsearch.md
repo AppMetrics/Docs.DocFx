@@ -1,6 +1,6 @@
 # Elasticsearch Reporter
 
-Metrics can be reported to [ElasticSearch](https://www.elastic.co/) using the [ElasticSearch Reporter package](https://www.nuget.org/packages/App.Metrics.Extensions.Reporting.ElasticSearch/).
+Metrics can be reported to [ElasticSearch](https://www.elastic.co/) using the [App.Metrics.Extensions.Reporting.ElasticSearch](https://www.nuget.org/packages/App.Metrics.Extensions.Reporting.ElasticSearch/) nuget package.
 
 1. First see the [getting started](../getting-started/intro.md) guide.
 
