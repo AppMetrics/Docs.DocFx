@@ -4,6 +4,9 @@ App Metrics does not include any visualzation tool but does include generic [Gra
 
 The [sample console application](https://github.com/alhardy/AppMetrics.Samples/tree/master/src/App.Sample) is configured to report metrics to [InfluxDB](https://www.influxdata.com/time-series-platform/influxdb/), with metrics persisted in InfluxDB, [Grafana](https://grafana.net/) can be used to visualize and alert on metrics. Below is a Grafana dashbaord showing some of the metrics recorded by the sample console application.
 
+> [!TIP]
+> You can find App Metrics compatible Grafana dashboards on [Grafana Labs](https://grafana.com/dashboards?search=appmetrics).
+
 ## Grafana Dashboards
 
 ### InfluxDB Demo Dashboard
