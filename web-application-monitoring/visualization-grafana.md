@@ -26,19 +26,19 @@ Out-of-box, App.Metrics includes generic Grafana web application dashboards that
 1. Configure your application to use [App Metrics ASP.NET Core Middleware](../getting-started/intro.md#configuring-a-web-host) and [Reporting](../reporting/index.md) targetting your desired TSDB.
 2. Run your application to report some metrics
 3. Download and install [Grafana](https://grafana.com/grafana/download), then create a new datasource specifying the reporter's details configured as part of your application setup.
-3. [Import the desired Grafana dashboard](http://docs.grafana.org/reference/export_import/#importing-a-dashboard) by copying and pasting from one of the following grafana dashboard links.
+3. [Import the desired Grafana dashboard(s)](https://grafana.com/dashboards?search=appmetrics) by copying and pasting the dasboard ID into the [Import Dashboard](http://docs.grafana.org/reference/export_import/#importing-a-dashboard) window in Grafana
 
 ## Get the Grafana dashboards!
 
 ### Generic Web
-- [InfluxDB](https://raw.githubusercontent.com/alhardy/AppMetrics.Extensions.InfluxDB/master/visualization/grafana-dashbaords/App.Metrics.Sandbox-InfluxDB-GenericWeb.json).
-- [Elasticsearch](https://github.com/alhardy/AppMetrics.Extensions.Elasticsearch/raw/master/visualization/grafana-dashboards/App.Metrics.Sandbox-Elasticsearch-GenericWeb.json).
+- [InfluxDB](https://grafana.com/dashboards/2125).
+- [Elasticsearch](https://grafana.com/dashboards/2140).
 - [Prometheus](https://github.com/alhardy/AppMetrics.Extensions.Prometheus). *Dashbaord work in progress*
 - [Graphite](https://github.com/alhardy/AppMetrics.Extensions.Graphite). *Dashbaord work in progress*
 
 ### Generic OAuth2 Web
-- [InfluxDB](https://raw.githubusercontent.com/alhardy/AppMetrics.Extensions.InfluxDB/master/visualization/grafana-dashbaords/App.Metrics.Sandbox-InfluxDB-GenericWebOAuth2.json).
-- [Elasticsearch](https://raw.githubusercontent.com/alhardy/AppMetrics.Extensions.Elasticsearch/master/visualization/grafana-dashboards/App.Metrics.Sandbox-Elasticsearch-GenericWebOAuth2.json).
+- [InfluxDB](https://grafana.com/dashboards/2137).
+- [Elasticsearch](https://grafana.com/dashboards/2143).
 - [Prometheus](https://github.com/alhardy/AppMetrics.Extensions.Prometheus). *Dashbaord work in progress*
 - [Graphite](https://github.com/alhardy/AppMetrics.Extensions.Graphite). *Dashbaord work in progress*
 

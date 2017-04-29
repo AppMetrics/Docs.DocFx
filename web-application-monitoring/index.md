@@ -22,4 +22,5 @@ Out-of-box App Metrics doesn't provide a visualization tool, instead it includes
 
 ### Related Articles
 
+- [ASP.NET Core Real-time Monitoring with InfluxDB and Grafana](https://al-hardy.blog/2017/04/28/asp-net-core-monitoring-with-influxdb-grafana/)
 - [Open Source Application Performance Management](https://al-hardy.blog/2017/04/08/open-source-apm/)
