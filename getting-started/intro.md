@@ -2,7 +2,7 @@
 
 ## Configuring a Web Host
 
-1. Add the [App.Metrics.Extensions.Middleware](https://www.nuget.org/packages/App.Metrics.Extensions.Middleware/) and [App.Metrics.Formatters.Json](https://www.nuget.org/packages/App.Metrics.Formatters.Json/) nuget packages to your project.
+1. Add the [App.Metrics](https://www.nuget.org/packages/App.Metrics/), [App.Metrics.Extensions.Middleware](https://www.nuget.org/packages/App.Metrics.Extensions.Middleware/) and [App.Metrics.Formatters.Json](https://www.nuget.org/packages/App.Metrics.Formatters.Json/) nuget packages to your project.
 
 2. App Metrics is configured using the usual pattern to provide services and configuration to an ASP.NET Core project by adding required services to the `ConfigureServices` method in the `Startup.cs`
 
