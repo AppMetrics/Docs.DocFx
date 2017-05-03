@@ -9,7 +9,7 @@
         "MetricsEndpoint": "/app-metrics",
         "MetricsTextEndpoint": "/app-metrics-text",
         "PingEndpoint": "/api-up",
-        "IgnoredRequestPatterns": [ "(?i)^api/test/ignore" ],
+        "IgnoredRoutesRegexPatterns": [ "(?i)^api/test/ignore" ],
         "IgnoredHttpStatusCodes": [ 404 ]
     }
 }
