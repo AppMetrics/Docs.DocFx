@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{_rel}}styles/docfx.vendor.css">
   <link rel="stylesheet" href="{{_rel}}styles/docfx.css">
   <link rel="stylesheet" href="{{_rel}}styles/main.css">
+  <link rel="nuget" type="application/rsd+xml" href="https://www.myget.org/Discovery/Feed/alhardy/" />
   <meta property="docfx:navrel" content="{{_navRel}}">
   <meta property="docfx:tocrel" content="{{_tocRel}}">
   {{#_enableSearch}}<meta property="docfx:rel" content="{{_rel}}">{{/_enableSearch}}
