@@ -14,7 +14,7 @@ Timers, like [Histogram](histograms.md) also allow us to track the *min*, *max* 
 
 Which for example when using the [JSON formatter](../intro.md#configuring-a-web-host) would result in something similar to:
 
-[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/TimerExample.json)]    
+[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/TimerExample.json)]
 
 > [!NOTE]
 > When reporting metrics with counts we should keep in mind that they are a cumulative count, see notes in the [Counters](counters.md#reporting-counters) documentation.
@@ -25,5 +25,3 @@ Which for example when using the [JSON formatter](../intro.md#configuring-a-web-
 ## Related Docs
 
 - [Reservoir Sampling](../sampling/index.md)
-- [Getting Started](../intro.md#measuring-application-metrics)
-- [Configuration](../fundamentals/configuration.md)

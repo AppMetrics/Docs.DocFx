@@ -41,5 +41,5 @@ If your web application is secured with OAuth2, by default App.Metrics will reco
 ## Related Docs
 
 - [How to configure a Web Host](../getting-started/intro.md#configuring-a-web-host)
-- [How to configure reporting in a Web Host](../reporting/index.md#run-reporting-in-a-web-host)
+- [How to configure reporting in a Web Host](../reporting/index.md#reporting-from-an-aspnet-core-web-application)
 - [Metric Types](../getting-started/metric-types/overview.md)

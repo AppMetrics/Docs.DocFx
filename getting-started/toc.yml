@@ -5,7 +5,9 @@
     - name: Configuration
       href: fundamentals/configuration.md      
     - name: Organizing Metrics
-      href: fundamentals/organizing-metrics.md  
+      href: fundamentals/organizing-metrics.md
+    - name: Recording Metrics
+      href: fundamentals/recording-metrics.md  
 - name: Metric Types    
   items:
     - name: Overview

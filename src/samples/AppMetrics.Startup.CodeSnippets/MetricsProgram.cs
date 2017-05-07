@@ -8,14 +8,15 @@ public class Host
         
         var provider = serviceCollection.BuildServiceProvider();
         provider.GetRequiredService<IMetrics>();
+        
+        var metrics = provider.GetRequiredService<IMetrics>();
 
-        // Use this to start recording metrics
-        var metrics = provider.GetRequiredService<IMetrics>();   			        
+        // TODO: use metrics to start measuring metrics
                     
         var reporterFactory = provider.GetRequiredService<IReportFactory>();
         var reporter = reporterFactory.CreateReporter();
         // Will continue to run for the confgured report internal
-        reporter.RunReports(metrics, cancellationTokenSource.Token);           
+        reporter.RunReports(metrics);           
 
         Console.ReadKey();
     }

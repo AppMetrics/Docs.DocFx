@@ -25,7 +25,7 @@ App Metrics caculates the counts of the three thresholds using a [Histogram](his
 
 Which for example when using the [JSON formatter](../intro.md#configuring-a-web-host) would result in something similar to:
 
-[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/ApdexExample.json)]    
+[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/ApdexExample.json)]
 
 When using the `App.Metrics.Extensions.Middleware` or `App.Metrics.Extensions.Mvc` package, an apdex score will be providing as shown above based on all requests. However you could also record an apdex score for any other request independently, which could be useful if for example if mulitple clients where using the same api, one with access to all endpoints and the other with access to a subset of endpoints, this would then allow us to report an SLA targetting each client.
 
@@ -38,8 +38,3 @@ Here is the result of running the sample and viewing in Grafana
 
 > [!NOTE]
 > We can see in the image above that at the time when there were many frustrating requests the apdex as in the critial threshold at the bottom left of the dashboards, as these requests dropped of and the number of satisfied requests increased the apdex score began to increase towards one.
-
-## Related Docs
-
-- [Getting Started](../intro.md#measuring-application-metrics)
-- [Configuration](../fundamentals/configuration.md)

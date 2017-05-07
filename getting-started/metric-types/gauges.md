@@ -24,8 +24,3 @@ Ratio Gauges allow you to measure a Gauge with a measurement which is the ratio 
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Metric.Code.Snippets/Gauges.cs?start=32&end=47&highlight=16)]
 
-## Related Docs
-
-- [Getting Started](../intro.md#measuring-application-metrics)
-- [Configuration](../fundamentals/configuration.md)
-

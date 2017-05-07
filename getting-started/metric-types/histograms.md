@@ -1,6 +1,6 @@
 # Histograms
 
-Histograms measure the statistical distribution of a set of values including the *min*, *max*, *mean*, *median*, *standard deviation* and [quantiles](https://en.wikipedia.org/wiki/Quantile) i.e. the *75th percentile*, *90th percentile*, *95th percentile*, *99th percentile* and *99.9th percentile* allowing us to sample observations for things like response sizes. 
+Histograms measure the statistical distribution of a set of values including the *min*, *max*, *mean*, *median*, *standard deviation* and [quantiles](https://en.wikipedia.org/wiki/Quantile) i.e. the *75th percentile*, *90th percentile*, *95th percentile*, *99th percentile* and *99.9th percentile* allowing us to sample observations for things like response sizes.
 
 A use case for a Histogram could be tracking the POST and PUT requests sizes made to a web service or tracking the file sizes uploaded to an endpoint.
 
@@ -14,7 +14,7 @@ Histograms also allow us to track the *min*, *max* and *last value* that has bee
 
 Which for example when using the [JSON formatter](../intro.md#configuring-a-web-host) would result in something similar to:
 
-[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/HistogramExample.json)]    
+[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/HistogramExample.json)]
 
 ## Reservoir Sampling
 
@@ -24,19 +24,17 @@ Out-of-box App.Metrics supports three types of [reserreservoirvoir sampling](../
 
 It is possible to change the reservoir both globally for all metrics and for an individual metric:
 
-#### Change the default Reservoir Globally
+### Change the default Reservoir Globally
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Metric.Code.Snippets/Sampling.cs?start=1&end=10)]
 
-#### Set the Reservoir for a specific metric
+### Set the Reservoir for a specific metric
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Metric.Code.Snippets/Sampling.cs?start=11)]
 
 > [!NOTE]
-> You can also implement custom Reservoirs by implementing `IReservoir`
+> You can also implement custom Reservoirs by implementing `IReservoir`.
 
 ## Related Docs
 
 - [Reservoir Sampling](../sampling/index.md)
-- [Getting Started](../intro.md#measuring-application-metrics)
-- [Configuration](../fundamentals/configuration.md)

@@ -976,6 +976,22 @@ input[type=search] {
     max-height: 200px;
 }
 
+table {
+    padding: 10px;
+    border-collapse: separate;
+}
+
+th {
+    background-color: #f2f2f2
+}
+
+th, td {
+   padding: 10px;
+   border-bottom: 1px dashed #ddd;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2}
+
 footer {
     position: absolute;
     left: 0;
@@ -990,6 +1006,10 @@ footer {
     color: #ccc;
     padding: 15px 0;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.footer span {
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -1248,7 +1268,47 @@ pre {
     padding: 0;
 }
 
-.TIP p {
+.WARNING p {
+    font-size: .875rem !important;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+.WARNING h5:before {
+    content: "\e107";
+    margin-right: 4px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-weight: 400;
+    line-height: 1;
+    position: relative;
+    top: 1px;
+}
+
+.WARNING h5 {
+    font-size: 14px;
+}
+
+.WARNING {
+    color: #a94442;
+    border-color: #a94442;
+    background: #f2dede;
+    border: 1px solid;    
+    line-height: 1.4;
+    padding: 1em;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.WARNING > :first-child {
+    margin: 0 0 8px;
+    padding: 0;
+}
+
+.WARNING p {
     font-size: .875rem !important;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;

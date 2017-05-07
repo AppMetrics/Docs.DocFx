@@ -21,6 +21,6 @@ Generic web application dashboard, read the details [here](../web-application-mo
 
 ### OAuth2 Web Monitoring
 
-Generic OAuth2 client tracking dashboard, read the details [here](..//web-application-monitoring/visualization-grafana.html#generic-oauth2-web-dashboard-features).
+Generic OAuth2 client tracking dashboard, read the details [here](../web-application-monitoring/visualization-grafana.html#generic-oauth2-web-dashboard-features).
 
 <img alt="grafana app metrics oauth2 middleware" src="https://raw.githubusercontent.com/alhardy/AppMetrics.DocFx/master/images/generic_grafana_oauth2_dashboard_demo.gif" />

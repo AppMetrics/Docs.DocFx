@@ -14,15 +14,10 @@ And if we wanted to track the rate at which each HTTP status was occuring with a
 
 Which for example when using the [JSON formatter](../intro.md#configuring-a-web-host) would result in something similar to:
 
-[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/MeterExample.json)]    
+[!code-json[Main](../../src/samples/App.Metrics.Formatters.Json.Samples/MeterExample.json)]
 
 > [!NOTE]
 > When reporting metrics with counts we should keep in mind that they are a cumulative count, see notes in the [Counters](counters.md#reporting-counters) documentation.
 > A Meters values can also be reset like a [Counter](counters.md) as shown below.
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Metric.Code.Snippets/Meters.cs?start=26)]
-
-## Related Docs
-
-- [Getting Started](../intro.md#measuring-application-metrics)
-- [Configuration](../fundamentals/configuration.md)

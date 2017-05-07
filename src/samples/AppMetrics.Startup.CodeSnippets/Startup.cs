@@ -6,6 +6,8 @@ public class Startup
 			.AddJsonSerialization()
 			.AddHealthChecks()
 			.AddMetricsMiddleware();
+
+		services.AddMvc(options => options.AddMetricsResourceFilter());
 	}
 
 	public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)

@@ -24,24 +24,28 @@ Out-of-box, App.Metrics includes generic Grafana web application dashboards that
 ## How to setup the dashboards
 
 1. Configure your application to use [App Metrics ASP.NET Core Middleware](../getting-started/intro.md#configuring-a-web-host) and [Reporting](../reporting/index.md) targetting your desired TSDB.
-2. Run your application to report some metrics
-3. Download and install [Grafana](https://grafana.com/grafana/download), then create a new datasource specifying the reporter's details configured as part of your application setup.
-3. [Import the desired Grafana dashboard(s)](https://grafana.com/dashboards?search=appmetrics) by copying and pasting the dasboard ID into the [Import Dashboard](http://docs.grafana.org/reference/export_import/#importing-a-dashboard) window in Grafana
+1. Run your application to report some metrics
+1. Download and install [Grafana](https://grafana.com/grafana/download), then create a new datasource specifying the reporter's details configured as part of your application setup.
+1. [Import the desired Grafana dashboard(s)](https://grafana.com/dashboards?search=appmetrics) by copying and pasting the dasboard ID into the [Import Dashboard](http://docs.grafana.org/reference/export_import/#importing-a-dashboard) window in Grafana
 
-## Get the Grafana dashboards!
+> [!WARNING]
+> All generic App Metrics Grafana dashboards expect `app`, `env` and `server` global tags to be set, see [here](../getting-started/fundamentals/organizing-metrics.md#tagging-helpers) for example.
+
+## Get the Grafana dashboards
 
 ### Generic Web
+
 - [InfluxDB](https://grafana.com/dashboards/2125).
 - [Elasticsearch](https://grafana.com/dashboards/2140).
+- [Graphite](https://grafana.com/dashboards/2192).
 - [Prometheus](https://github.com/alhardy/AppMetrics.Extensions.Prometheus). *Dashbaord work in progress*
-- [Graphite](https://github.com/alhardy/AppMetrics.Extensions.Graphite). *Dashbaord work in progress*
 
 ### Generic OAuth2 Web
+
 - [InfluxDB](https://grafana.com/dashboards/2137).
 - [Elasticsearch](https://grafana.com/dashboards/2143).
+- [Graphite](https://grafana.com/dashboards/2198).
 - [Prometheus](https://github.com/alhardy/AppMetrics.Extensions.Prometheus). *Dashbaord work in progress*
-- [Graphite](https://github.com/alhardy/AppMetrics.Extensions.Graphite). *Dashbaord work in progress*
-
 
 > [!TIP]
 > All the [sample apps](../samples/index.md) have [sample Grafana dashboards](https://github.com/alhardy/AppMetrics.Samples/tree/master/grafana_dashboards) that can also be downloaded and imported into Grafana for testing.

@@ -2,24 +2,26 @@
 
 App Metrics includes an AspNet Middleware Extension package which will record web metrics such as, error rates and percentages, per endpoint and an overall request rates etc.
 
-Configuration options are accessible through the `AddMetricsMiddleware` extension on the `IMetricsHostBuilder`. 
+Configuration options are accessible through the `AddMetricsMiddleware` extension on the `IMetricsHostBuilder`.
 
 These configuration options include:
 
-- **HealthEndpoint**: Allows customization of the endpoint which will report the health status of the application. The default path is `/health`
-- **HealthEndpointEnabled**: Allows enabling/disabling of the `/health` endpoint, when disabled will result in a 404 status code, the default is true.
-- **IgnoredRoutesRegexPatterns**: The AspNet Middleware Extension measures for example a Timer metric for each request, specific endpoints can be ignored by providing an `IList<string>` of regex patterns. 
-- **MetricsEndpoint**: Allows customization of the endpoint which will report a snapshot of the applications current metric measurements. The default path is `/metrics`
-- **MetricsEndpointEnabled**: Allows enabling/disabling of the `/metrics` endpoint, when disabled will result in a 404 status code, the default is true.
-- **MetricsTextEndpoint**: Allows customization of the endpoint which will report a snapshot of the applications current metric measurements in a hummanized format. The default path is `/metrics-text`
-- **MetricsTextEndpointEnabled**: Allows enabling/disabling of the `/metrics-text` endpoint, when disabled will result in a 404 status code, the default is true.
-- **OAuth2TrackingEnabled**: Allows recording of all OAuth2 Client tracking to be disabled. When enabled middleware is configured to track request rates, an overall percentage of requests per Client / per endpoint, and error rates per Client.
-- **DefaultTrackingEnabled**: Allows enabling/disabling of the default [tracking middleware](https://github.com/alhardy/AppMetrics/tree/master/src/App.Metrics.Extensions.Middleware). If disabled all metrics endpoints are still enabled, by default all tracking middleware is enabled.
-- **PingEndpoint**: Allows customization of the ping endpoint which simply returns pong. The default path is `/ping`
-- **PingEndpointEnabled**: Allows enabling/disabling of the `/ping` endpoint, when disabled will result in a 404 status code, the default is true.
-- **ApdexTrackingEnabled**: Allows enabling/disabling of calculating the [Apdex](../getting-started/metric-types/apdex.md) score of a web application, the default is true.
-- **ApdexTSeconds**: The [Apdex](../getting-started/metric-types/apdex.md) T seconds value used in calculating the score on the samples collected.
-- **IgnoredHttpStatusCodes**: Allows specific http status codes to be ignored when reporting on request failes, e.g. You might not want to alert on 400 status codes or monitor 404 status codes.
+|Property|Description|
+|------|:--------|
+|**HealthEndpoint**|Allows customization of the endpoint which will report the health status of the application. The default path is `/health`.
+|**HealthEndpointEnabled** |Allows enabling/disabling of the `/health` endpoint, when disabled will result in a 404 status code, the default is true.
+|**IgnoredRoutesRegexPatterns**|The AspNet Middleware Extension measures for example a Timer metric for each request, specific endpoints can be ignored by providing an `IList<string>` of regex patterns.
+|**MetricsEndpoint** |Allows customization of the endpoint which will report a snapshot of the applications current metric measurements. The default path is `/metrics`.
+|**MetricsEndpointEnabled**|Allows enabling/disabling of the `/metrics` endpoint, when disabled will result in a 404 status code, the default is true.
+|**MetricsTextEndpoint**|Allows customization of the endpoint which will report a snapshot of the applications current metric measurements in a hummanized format. The default path is `/metrics-text`.
+|**MetricsTextEndpointEnabled**|Allows enabling/disabling of the `/metrics-text` endpoint, when disabled will result in a 404 status code, the default is true.
+|**OAuth2TrackingEnabled**|Allows recording of all OAuth2 Client tracking to be disabled. When enabled middleware is configured to track request rates, an overall percentage of requests per Client / per endpoint, and error rates per Client.
+|**DefaultTrackingEnabled**|Allows enabling/disabling of the default [tracking middleware](https://github.com/alhardy/AppMetrics/tree/master/src/App.Metrics.Extensions.Middleware). If disabled all metrics endpoints are still enabled, by default all tracking middleware is enabled.
+|**PingEndpoint**|Allows customization of the ping endpoint which simply returns pong. The default path is `/ping`.
+|**PingEndpointEnabled**|Allows enabling/disabling of the `/ping` endpoint, when disabled will result in a 404 status code, the default is true.
+|**ApdexTrackingEnabled**|Allows enabling/disabling of calculating the [Apdex](../getting-started/metric-types/apdex.md) score of a web application, the default is true.
+|**ApdexTSeconds**|The [Apdex](../getting-started/metric-types/apdex.md) T seconds value used in calculating the score on the samples collected.
+|**IgnoredHttpStatusCodes**|Allows specific http status codes to be ignored when reporting on request failes, e.g. You might not want to alert on 400 status codes or monitor 404 status codes.
 
 ## Fluent configuration using `Action<AspNetMetricsOptions>`
 

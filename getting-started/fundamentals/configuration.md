@@ -1,24 +1,26 @@
 # Configuration Options
 
-App Metrics provides access to configuration options through the `AddMetrics` extension on the `IServiceCollection`. 
+App Metrics provides access to configuration options through the `AddMetrics` extension on the `IServiceCollection`.
 
 These configuration options include:
 
-- **DefaultContextLabel**: Metrics recorded through the `IMetrics` interface are grouped into "Contexts", for example a database context or application context. Metrics names should be unique per context. If no context label is presented when recording a metric, the default of "Application" will be used. This value can be changed through the DefaultContextLabel option.
-- **DefaultSamplingType**: Histograms track the statistical distribution of a set of values, they do this by generating values from a reservoir of values using sampling. App Metrics provides different types of sampling, the default sampling type is Exponentially Decaying, this property allows that default value to be changed. The default sampling type is only used if the Histogram being updated does not specify it's own sampling type.
-- **GlobalTags**: All metric types can be tagged, for example we could tag all metrics by environment e.g. staging or production so when we report metrics we know the environment for which they originated. GlobalTags provide access to a `Dictionary<string, string>` which is used to tag all metrics.
-- **MetricsEnabled**: Allows recording of all metrics to be disabled.
-- **ReportingEnabled**: Allows all configured reporters to be disabled.
+|Property|Description|
+|------|:--------|
+|**DefaultContextLabel**|Metrics recorded through the `IMetrics` interface are grouped into "Contexts", for example a database context or application context. Metrics names should be unique per context. If no context label is presented when recording a metric, the default of "Application" will be used. This value can be changed through the DefaultContextLabel option.
+|**DefaultSamplingType**|Histograms track the statistical distribution of a set of values, they do this by generating values from a reservoir of values using sampling. App Metrics provides different types of sampling, the default sampling type is Exponentially Decaying, this property allows that default value to be changed. The default sampling type is only used if the Histogram being updated does not specify it's own sampling type.
+|**GlobalTags**|All metric types can be tagged, for example we could tag all metrics by environment e.g. staging or production so when we report metrics we know the environment for which they originated. GlobalTags provide access to a `Dictionary<string, string>` which is used to tag all metrics.
+|**MetricsEnabled**|Allows recording of all metrics to be disabled.
+|**ReportingEnabled**|Allows all configured reporters to be disabled.
 
 ## Changing options using `Action<AppMetricOptions>`
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptions.cs?highlight=5,7)]  
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptions.cs?highlight=5,7)]
 
 ## Changing options using `Microsoft.Extensions.Configuration.IConfiguration`
 
 Below is an example `Startup.cs` using `appsettings.json` as a configuration source:
 
-[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsIConfiguration.cs?highlight=17)]     
+[!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsIConfiguration.cs?highlight=17)]
 
 And the `appsettings.json` file
 
@@ -32,7 +34,7 @@ In cases where it's required to have some settings in a configuration file but o
 
 > [!NOTE]
 > To have routes measured a resource filter is required to extract the route template of each request, add the resource filter when configuring Mvc options i.e.
-> 
+>
 > ```csharp
 > services.AddMvc(options => options.AddMetricsResourceFilter());
 >  ```

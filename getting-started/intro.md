@@ -1,66 +1,86 @@
 # Getting started
 
+This page contains two quick start guides to getting started with App Metrics. The first demonstrates how to get started in a web application and the second how to get started in a console application.
+
 ## Configuring a Web Host
 
-1. Add the [App.Metrics](https://www.nuget.org/packages/App.Metrics/), [App.Metrics.Extensions.Middleware](https://www.nuget.org/packages/App.Metrics.Extensions.Middleware/) and [App.Metrics.Formatters.Json](https://www.nuget.org/packages/App.Metrics.Formatters.Json/) nuget packages to your project.
-1. App Metrics is configured using the usual pattern to provide services and configuration to an ASP.NET Core project by adding required services to the `ConfigureServices` method in the `Startup.cs`
+App Metrics includes ASP.NET Core middleware which will collect typical metrics related to a web application. See the [middleware documentation](../web-application-monitoring/middleware.md) for more details.
+
+The following steps assume you have already created a [new ASP.NET Core MVC or API project](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc).
+
+### Step 1
+
+Add the [App.Metrics](https://www.nuget.org/packages/App.Metrics/), [App.Metrics.Extensions.Middleware](https://www.nuget.org/packages/App.Metrics.Extensions.Middleware/) and [App.Metrics.Formatters.Json](https://www.nuget.org/packages/App.Metrics.Formatters.Json/) nuget packages to your project.
+
+```console
+nuget install App.Metrics
+
+nuget install App.Metrics.Extensions.Middleware
+
+nuget install App.Metrics.Formatters.Json
+```
+
+### Step 2
+
+App Metrics is configured using the typical pattern to provide services and configuration to an ASP.NET Core project by adding required services to the `ConfigureServices` method in the `Startup.cs`
 
 Modify your `Startup.cs` with the following:
 
 [!code-csharp[Main](../src/samples/AppMetrics.Startup.CodeSnippets/Startup.cs)]
 
-What does the above configuration do?
+> [!NOTE]
+> The `AddMetricsResourceFilter` extension method on `MvcOptions` is required to allow App Metrics to inspect route template information to tag metrics.
 
-- `AddMetrics` registers App Metrics services with the `IServiceCollection`. This method also also provides options to change the default metrics configuration if you wish to do so.
-- `AddHealthChecks` registers the Health Checking sytem, it will scan for classes within the project and any other project which has a reference to App Metrics and register any class which inherits `HealthCheck`. Alternatively, this method also provides access to the `IHealthCheckFactory` where you can register health checks inline.
-- `AddMetricsMiddleware` registers middleware components providing a serveral metrics related endpoints, which are:
+### Step 3
 
- 1. `/ping`: Used to determine if you can get a successful pont response, useful for load balancers
- 1. `/metrics`: Renders all metrics using the configured `IMetricsDataSerializer`, in our case in json format
- 1. `/metrics-text`: Renders a Humannized version of the metric data captured by the application
- 1. `/health`: Executes all health checks registered to determin the health status of the application
+Run your web application and request the following urls.
+
+|Endpoint|Description|
+|------|:--------|
+|`/ping`|Used to determine if you can get a successful pont response, useful for load balancers.
+|`/metrics`|Renders all metrics using the configured `IMetricsDataSerializer`, in our case in json format.
+|`/metrics-text`|Renders a Humannized version of the metric data captured by the application.
+|`/health`|Executes all health checks registered to determine the health status of the application.
 
 > [!TIP]
-> See the App Metrics Middleware Formatter docs on how to [implement a custom formatter](../web-application-monitoring/formatters/overview.md#implementing-a-custom-formatter) or what other [formatting options are available](../web-application-monitoring/formatters/overview.md#available-formatters).
+> Metrics formatting is pluggable, see the App Metrics Middleware Formatter docs on how to [implement a custom formatter](../web-application-monitoring/formatters/overview.md#implementing-a-custom-formatter) or what other [formatting options are available](../web-application-monitoring/formatters/overview.md#available-formatters).
+
+> [!TIP]
+> See the App Metrics Health Check docs on how to [implement health checks](health-checks/index.md#implementing-a-health-check).
 
 ## Configuring a Console Application
 
-1. Add the [App.Metrics](https://www.nuget.org/packages/App.Metrics/) and [App.Metrics.Extensions.Reporting.Console](https://www.nuget.org/packages/App.Metrics.Extensions.Reporting.Console/) nuget packages to your project.
+App Metrics can also be used outside a web context. Create a new console application and follow the steps below.
 
-2. App Metrics is configured using the usual pattern to provide services and configuration to an ASP.NET Core project by adding required services to the `ConfigureServices` method in the `Startup.cs` 
+### Step 1
+
+Add the [App.Metrics](https://www.nuget.org/packages/App.Metrics/) and [App.Metrics.Extensions.Reporting.Console](https://www.nuget.org/packages/App.Metrics.Extensions.Reporting.Console/) nuget packages to your project.
+
+```console
+nuget install App.Metrics
+
+nuget install App.Metrics.Extensions.Reporting.Console
+```
+
+### Step 2
 
 Modify your `Program.cs` with the following:
 
-[!code-csharp[Main](../src/samples/AppMetrics.Startup.CodeSnippets/MetricsProgram.cs)]    	 
+[!code-csharp[Main](../src/samples/AppMetrics.Startup.CodeSnippets/MetricsProgram.cs)]
 
-- `AddMetrics` registers App Metrics services with the `IServiceCollection`. This method also also provides options to change the default metrics configuration if you wish to do so.
-- `AddHealthChecks` registers the Health Checking sytem, it will scan for classes within the project and any other project which has a reference to App Metrics and register any class which inherits `HealthCheck`. Alternatively, this method also provides access to the `IHealthCheckFactory` where you can register health checks inline.
-- `AddReporting` provides access to the `IReportFactory` allowing multiple metric report providers to be configured that will execute on each report run at the specified interval
+### Step 3
 
-## Measuring Application Metrics
+Replace the `// TODO: use metrics to start measuring metrics` comment in the above snippet with code that [records metrics](./fundamentals/recording-metrics.md#recording-metrics-using-an-imetrics-instance) and run your application.
 
-App Metrics provides access to an `IMetrics` interface which is registered as a Single Instance. This can be injected where required to start mesuring different types of metrics.
+## Notes on the IServiceCollection extensions
 
-Each metric being measured should be described through one of the below, which provides details about the metric being measured, the only required property is the `Name` property.
+|Extension|Description|
+|------|:--------|
+|`AddMetrics`|Registers App Metrics services with the `IServiceCollection`. This method also also provides options to change the default metrics configuration if you wish to do so.
+|`AddHealthChecks`|Registers the Health Checking sytem, it will scan for classes within the project and any other project which has a reference to App Metrics and register any class which inherits `HealthCheck`. Alternatively, this method also provides access to the `IHealthCheckFactory` where you can register health checks inline.
+|`AddMetricsMiddleware`|Registers middleware components providing serveral metrics related endpoints show in the next step.
+|`AddReporting`|Provides access to the `IReportFactory` allowing multiple metric report providers to be configured that will execute on each report run at the specified interval.
 
-- `GaugeOptions`: Allows the metric context, metric name, unit of measurement, and tags to be specified.
-- `CounterOptions`: Allows the metric context, metric name, unit of measurement, and tags to be specified.
-- `MeterOptions`: Allows the metric context, metric name, unit of measurement, rate unit and tags to be specified.
-- `TimerOptions`: Allows the metric context, metric name, unit of measurement, rate unit, duration unit, sampling type and tags to be specified. Also allows a custom `IReservoir` to be used for sampling.
-- `HistogramOptions`: Allows the metric context, metric name, unit of measurement, sampling type and tags to be specified. Also allows a custom `IReservoir` to be used for sampling.
+## Related Articles
 
-> [!NOTE]
-> See the [Api Documentation](../api/App.Metrics.Core.Options.html) for details on each of the above.
-
-Below is an example of how organize an application's metrics
-
-[!code-csharp[Main](../src/samples/AppMetrics.Metric.Code.Snippets/AppMetricsRegistry.cs)]    	     
-
-And to record the above metrics through `IMetrics`
-
-[!code-csharp[Main](../src/samples/AppMetrics.Metric.Code.Snippets/RecordMetrics.cs)]    	 
-
-## Next Steps
-
-- [Metrics Types](metric-types/overview.md)
-- [Configuration Options](fundamentals/configuration.md)  
+- [ASP.NET Core Real-time Monitoring with InfluxDB and Grafana](https://al-hardy.blog/2017/04/28/asp-net-core-monitoring-with-influxdb-grafana/)

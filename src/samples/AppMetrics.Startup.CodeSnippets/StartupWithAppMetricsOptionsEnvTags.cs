@@ -5,11 +5,11 @@ public class Startup
         services.AddMetrics(options => {
                 options.DefaultContextLabel = "MyContext";
                 options.WithGlobalTags((globalTags, envInfo) =>
-                {
-                    globalTags.Add("host", envInfo.HostName);
-                    globalTags.Add("machine_name", envInfo.MachineName);
-                    globalTags.Add("app_name", envInfo.EntryAssemblyName);
-                    globalTags.Add("app_version", envInfo.EntryAssemblyVersion);
+                {                    
+                    globalTags.Add("server", envInfo.MachineName);
+                    globalTags.Add("app", envInfo.EntryAssemblyName);
+                    // Assumes _env is the IHostingEnvironment
+                    globalTags.Add("env", _env.IsStaging() ? "stage" : _env.IsProduction() ? "prod" : "dev");
                 });  	
             })
             .AddJsonSerialization()
