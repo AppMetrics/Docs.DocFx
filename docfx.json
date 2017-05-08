@@ -4,9 +4,9 @@
       "src": [
         {
           "files": [
-            "**/App.Metrics/App.Metrics.csproj",
-            "**/App.Metrics.Extensions.Middleware/App.Metrics.Extensions.Middleware.csproj",            
-            "**/App.Metrics.Formatters.Json/App.Metrics.Formatters.Json.csproj"
+            "**/App.Metrics/**/*.cs",
+            "**/App.Metrics.Extensions.Middleware/**/*.cs",            
+            "**/App.Metrics.Formatters.Json/**/*.cs"
           ],
           "exclude": [
             "**/obj/**",
@@ -16,7 +16,10 @@
           "cwd": "../AppMetrics/src"
         }
       ],
-      "dest": "api"
+      "dest": "api",
+      "properties": {
+          "TargetFramework": "netstandard1.6"
+      }
     }    
   ],
   "build": {

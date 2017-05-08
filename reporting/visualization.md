@@ -15,7 +15,7 @@ The [sample console application](https://github.com/alhardy/AppMetrics.Samples/t
 
 ### Web Monitoring
 
-Generic web application dashboard, read the details [here](../web-application-monitoring/visualization-grafana.md#generic-web-dashboard-features).
+Generic web application dashboard, read the details [here](../web-application-monitoring/visualization-grafana.html#generic-oauth2-web-dashboard-features).
 
 <img alt="grafana app metrics middleware" src="https://raw.githubusercontent.com/alhardy/AppMetrics.DocFx/master/images/generic_grafana_dashboard_demo.gif" />
 

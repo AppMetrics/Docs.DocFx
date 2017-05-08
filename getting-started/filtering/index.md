@@ -36,7 +36,7 @@ Metrics can be filtered by:
 - Metric Name (Exact match or where name starts with)
 
 > [!TIP]
-> Custom Metric Filters can be implemented rather than using the [DefaultMetricsFilter](../../api/App.Metrics.DefaultMetricsFilter.html) by implementing [IMetricsFilter](../../api/App.Metrics.IMetricsFilter.html).
+> Custom Metric Filters can be implemented rather than using the [DefaultMetricsFilter](../../api/App.Metrics.Filtering.DefaultMetricsFilter.html) by implementing [IMetricsFilter](../../api/App.Metrics.Abstractions.Filtering.IFilterMetrics.html).
 
 ## Next Steps
 

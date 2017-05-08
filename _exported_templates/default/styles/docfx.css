@@ -659,9 +659,7 @@ body .toc {
     color: #62707c;
 }
 
-.toc .nav > li.active {
-    background-color: #0277BD;
-    padding: 5px;
+.toc .nav > li.active {        
     margin-bottom: 5px;
 }
 
@@ -673,12 +671,12 @@ body .toc {
 }
 
 .toc .nav > li.active > a {
-    color: #fff;
+    color: #0277BD;
 }
 
     .toc .nav > li.active > a:hover,
     .toc .nav > li.active > a:focus {
-        color: #fff;
+        color: #0277BD;
         text-decoration: underline;
     }
 
