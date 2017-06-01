@@ -10,10 +10,18 @@
   items:
     - name: Overview
       href: formatters/overview.md
+    - name: ASCII
+      href: formatters/ascii-formatter.md
     - name: JSON
       href: formatters/json-formatter.md
+    - name: InfluxDB
+      href: formatters/influxdb-formatter.md    
     - name: Prometheus
       href: formatters/prometheus-formatter.md    
+    - name: ElasticSearch
+      href: formatters/elasticsearch-formatter.md
+    - name: Graphite
+      href: formatters/graphite-formatter.md
 - name: Visualization
   items:
     - name: Grafana

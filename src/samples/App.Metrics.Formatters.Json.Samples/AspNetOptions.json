@@ -4,11 +4,13 @@
         "MetricsEndpointEnabled": true,
         "MetricsTextEndpointEnabled": true,
         "PingEndpointEnabled": true,
+        "EnvironmentInfoEndpointEnabled": true,
         "OAuth2TrackingEnabled": true,
         "HealthEndpoint": "/app-health",
         "MetricsEndpoint": "/app-metrics",
         "MetricsTextEndpoint": "/app-metrics-text",
         "PingEndpoint": "/api-up",
+        "EnvironmentInfoEndpoint": "/env",
         "IgnoredRoutesRegexPatterns": [ "(?i)^api/test/ignore" ],
         "IgnoredHttpStatusCodes": [ 404 ]
     }

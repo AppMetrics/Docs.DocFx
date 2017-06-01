@@ -13,8 +13,10 @@ Monitors the [Application Performance Index](../getting-started/metric-types/apd
 The error middleware records the following error metrics:
 
 1. The total number of error requests per http status code.
-2. The percentage of overall error requests and percentage of each endpoints error requests.
-3. An overall error request rate and error request rate per endpoint.
+1. The percentage of overall error requests and percentage of each endpoints error requests.
+1. An overall error request rate and error request rate per endpoint.
+1. A overall count of each uncaught exception types
+1. A overall count of each uncaught exception types per endpoint
 
 > [!TIP]
 > There are several types of [Gauges](https://alhardy.github.io/app-metrics-docs/getting-started/metric-types/gauges.html) provided by App Metrics, a Hit Percentage Gauge is used for example to calculate the request error rate percentage by calculating the percentage of failed requests using the one minute rate of error requests and the one minute rate of overall web requests.

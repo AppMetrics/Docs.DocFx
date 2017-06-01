@@ -7,9 +7,9 @@ App Metrics provides a two ways to organize your metrics:
 
 ## Metric Tagging
 
-Metrics can be tagged when [declaring your metrics](../fundamentals/recording-metrics.md#declaring-metrics), these tags can then be shipped with your metric values to your database of choice which is useful for commonly-queried metadata.
+Metrics can be tagged when they are [declared](../fundamentals/recording-metrics.md#declaring-metrics), these tags can then be shipped with your metric values to your database of choice which is useful for commonly-queried metadata.
 
-An example use case for tagging is recording an APIs response time per endpoint where a timer is recorded per endpoint but then reported as the same metric name tagged with by the endpoint. This allows us to more easily have a dynamic list of endpoints and their response times when visualising with Grafana for example.
+An example use case for tagging is recording an APIs response time per endpoint where a timer is recorded per endpoint but then reported as the same metric name tagged with by the endpoint. This allows us to more easily have a dynamic list of endpoints and their response times when visualizing with Grafana for example.
 
 ### Tagging at runtime
 
@@ -17,13 +17,23 @@ An example use case for tagging is recording an APIs response time per endpoint 
 
 ### Tagging globally
 
-Tags can also be defined for all Metrics globally which is useful for tagging by things like machine name, envrionment, ip address, application name etc.
+Tags can also be defined for all Metrics globally which is useful for tagging by things like machine name, environment, ip address, application name etc.
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptions.cs?highlight=9)]
 
+### Default tags
+
+App Metrics adds a few default global tags which are  commonly used. These are as follows:
+
+|Tag|Description|
+|------|:--------|
+|`app`|The name of the application, which is set to the entry assembly name of the application i.e. `Assembly.GetEntryAssembly().GetName().Name`.
+|`server`|The name of the machine the application is currently running on i.e. `Environment.MachineName`.
+|`env`|The environment the application is running in. When running in debug mode will be set to `debug` otherwise `release`. This can be adjusted to be `staging`, `production` etc via app settings, via the [tagging helpers](./organizing-metrics.md#tagging-helpers) or disabled setting the `AppMetricsOptions.AddDefaultGlobalTags` to `false`.
+
 ### Tagging helpers
 
-App Metrics provides an extension method on the AppMetricsOptions delegate passing some envrionment information that can be used to set global tags such as the machine name, assembly version etc.
+App Metrics provides an extension method on the AppMetricsOptions delegate passing some environment information that can be used to set global tags such as the machine name, assembly version etc.
 
 [!code-csharp[Main](../../src/samples/AppMetrics.Startup.CodeSnippets/StartupWithAppMetricsOptionsEnvTags.cs?highlight=7,8,9,10,11,12,13)]
 

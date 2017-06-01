@@ -11,6 +11,7 @@ These configuration options include:
 |**GlobalTags**|All metric types can be tagged, for example we could tag all metrics by environment e.g. staging or production so when we report metrics we know the environment for which they originated. GlobalTags provide access to a `Dictionary<string, string>` which is used to tag all metrics.
 |**MetricsEnabled**|Allows recording of all metrics to be disabled.
 |**ReportingEnabled**|Allows all configured reporters to be disabled.
+|**AddDefaultGlobalTags**|If set to true add the [default global tags](./organizing-metrics.md#default-tags).
 
 ## Changing options using `Action<AppMetricOptions>`
 

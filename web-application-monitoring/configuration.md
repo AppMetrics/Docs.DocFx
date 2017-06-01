@@ -22,6 +22,8 @@ These configuration options include:
 |**ApdexTrackingEnabled**|Allows enabling/disabling of calculating the [Apdex](../getting-started/metric-types/apdex.md) score of a web application, the default is true.
 |**ApdexTSeconds**|The [Apdex](../getting-started/metric-types/apdex.md) T seconds value used in calculating the score on the samples collected.
 |**IgnoredHttpStatusCodes**|Allows specific http status codes to be ignored when reporting on request failes, e.g. You might not want to alert on 400 status codes or monitor 404 status codes.
+|**EnvironmentInfoEndpointEnabled**|Allows enabling/disabling of the `/env` endpoint, when disabled will result in a 404 status code, the default is true.
+|**EnvironmentInfoEndpoint**|Allows customization of the endpoint which will report some environment information, such as the machine name, assembly version etc. The default path is `/env`.
 
 ## Fluent configuration using `Action<AspNetMetricsOptions>`
 
