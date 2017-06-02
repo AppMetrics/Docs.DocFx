@@ -38,14 +38,13 @@ Out-of-box, App.Metrics includes generic Grafana web application dashboards that
 - [InfluxDB](https://grafana.com/dashboards/2125).
 - [Elasticsearch](https://grafana.com/dashboards/2140).
 - [Graphite](https://grafana.com/dashboards/2192).
-- [Prometheus](https://github.com/alhardy/AppMetrics.Extensions.Prometheus). *Dashbaord work in progress*
+- [Prometheus](https://grafana.com/dashboards/2204).
 
 ### Generic OAuth2 Web
 
 - [InfluxDB](https://grafana.com/dashboards/2137).
 - [Elasticsearch](https://grafana.com/dashboards/2143).
 - [Graphite](https://grafana.com/dashboards/2198).
-- [Prometheus](https://github.com/alhardy/AppMetrics.Extensions.Prometheus). *Dashbaord work in progress*
 
 > [!TIP]
 > All the [sample apps](../samples/index.md) have [sample Grafana dashboards](https://github.com/alhardy/AppMetrics.Samples/tree/master/grafana_dashboards) that can also be downloaded and imported into Grafana for testing.

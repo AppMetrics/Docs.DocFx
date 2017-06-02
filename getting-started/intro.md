@@ -37,11 +37,12 @@ Modify your `Startup.cs` with the following:
 Run your web application and request the following urls.
 
 |Endpoint|Description|
-|------|:--------|
+|---------|:--------|
 |`/ping`|Used to determine if you can get a successful pont response, useful for load balancers.
-|`/metrics`|Renders all metrics using the configured `IMetricsDataSerializer`, in our case in json format.
-|`/metrics-text`|Renders a Humannized version of the metric data captured by the application.
-|`/health`|Executes all health checks registered to determine the health status of the application.
+|`/metrics`|Exposes all metrics using the configured metrics formatting.
+|`/metrics-text`|Exposes all metrics using the configured text formatting.
+|`/health`|Executes all health checks registered to determine the healthiness of the application.
+|`/env`|Exposes environment information about the application e.g. OS, Machine Name, Assembly Name, Assembly Version etc.
 
 > [!TIP]
 > Metrics formatting is pluggable, see the App Metrics Middleware Formatter docs on how to [implement a custom formatter](../web-application-monitoring/formatters/overview.md#implementing-a-custom-formatter) or what other [formatting options are available](../web-application-monitoring/formatters/overview.md#available-formatters).

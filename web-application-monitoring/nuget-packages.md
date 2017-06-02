@@ -8,11 +8,11 @@ The `App.Metrics.Extensions.Middleware` package provides a set of ASP.NET Core m
 
 The package also provides various endpoints to a web application:
 
-- `/metrics` - Exposes all metrics as JSON or Protobuf for example.
+- `/metrics` - Exposes all metrics using the configured metrics formatting.
 - `/health` - Executes all health checks registered to determine the healthiness of the application.
 - `/ping` - Used to determine if you can get a successful pont response, useful for load balancers.
-- `/metrics-text` - Returns a plain-text version of the `/metrics` endpoint.
-- `/env` - Returns environment information about the application e.g. OS, Machine Name, Assembly Name, Assembly Version etc.
+- `/metrics-text` - Exposes all metrics using the configured text formatting.
+- `/env` - Exposes environment information about the application e.g. OS, Machine Name, Assembly Name, Assembly Version etc.
 
 ```console
 nuget install App.Metrics.Extensions.Middleware
