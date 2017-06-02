@@ -10,15 +10,16 @@ The following steps assume you have already created a [new ASP.NET Core MVC or A
 
 ### Step 1
 
-Add the [App.Metrics](https://www.nuget.org/packages/App.Metrics/), [App.Metrics.Extensions.Middleware](https://www.nuget.org/packages/App.Metrics.Extensions.Middleware/) and [App.Metrics.Formatters.Json](https://www.nuget.org/packages/App.Metrics.Formatters.Json/) nuget packages to your project.
+Add the [App.Metrics](https://www.nuget.org/packages/App.Metrics/), [App.Metrics.Extensions.Mvc](https://www.nuget.org/packages/App.Metrics.Extensions.Mvc/) and [App.Metrics.Formatters.Json](https://www.nuget.org/packages/App.Metrics.Formatters.Json/) nuget packages to your project.
 
 ```console
-nuget install App.Metrics
-
-nuget install App.Metrics.Extensions.Middleware
+nuget install App.Metrics.Extensions.Mvc
 
 nuget install App.Metrics.Formatters.Json
 ```
+
+> [!TIP]
+> If implementing a web host without MVC and just middleware, this walk-through applies however rather than forcing a dependency on AspNet Core MVC packages we can reference the `App.Metrics.Extensions.Middleware` package instead.
 
 ### Step 2
 

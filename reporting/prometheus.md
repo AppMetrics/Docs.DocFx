@@ -5,9 +5,8 @@
 Prometheus formatting is provided by the [App.Metrics.Formatters.Prometheus](https://www.nuget.org/packages/App.Metrics.Formatters.Prometheus) nuget package, when configured the `/metrics` endpoint will serve metrics in Prometheus format for collection.
 
 1. First see the [getting started](../getting-started/intro.md) guide.
+1. Configure Prometheus formatting as explained in the [formatter documentation](../web-application-monitoring/formatters/prometheus-formatter.md)
 
-2. Configure Prometheus formatting as explained in the [formatter documentation](../web-application-monitoring/formatters/prometheus-formatter.md)
-
-### Web Monitoring
+## Web Monitoring
 
 See the [**generic Grafana web dashboards**](../web-application-monitoring/visualization-grafana.md) provided.

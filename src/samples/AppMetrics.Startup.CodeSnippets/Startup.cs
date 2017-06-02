@@ -2,6 +2,8 @@ public class Startup
 {
 	public void ConfigureServices(IServiceCollection services)
 	{
+		services.AddMvc(options => options.AddMetricsResourceFilter());
+		
 		services.AddMetrics()
 			// .AddJsonSerialization() - Enables json format on the /metrics-text, /metrics, /health and /env endpoints.
 			.AddJsonMetricsSerialization() // Enables json format on the /metrics-text endpoint.
@@ -10,12 +12,11 @@ public class Startup
 			.AddJsonEnvironmentInfoSerialization() // Enables json format on the /env endpont.
 			.AddHealthChecks()
 			.AddMetricsMiddleware();
-
-		services.AddMvc(options => options.AddMetricsResourceFilter());
 	}
 
 	public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
 	{            
-		app.UseMetrics();
+        app.UseMetrics();
+		app.UseMvc();
 	}
 }

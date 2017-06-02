@@ -15,7 +15,7 @@ public class Host
                     
         var reporterFactory = provider.GetRequiredService<IReportFactory>();
         var reporter = reporterFactory.CreateReporter();
-        // Will continue to run for the confgured report internal
+        // Will continue to run for the configured report internal
         reporter.RunReports(metrics);           
 
         Console.ReadKey();
@@ -28,10 +28,12 @@ public class Host
             .AddHealthChecks()
             .AddReporting(factory =>
             {                    
-                factory.AddConsole(new ConsoleReporterSettings
-                {
-                    ReportInterval = TimeSpan.FromSeconds(10),                        
-                });
+                factory.AddConsole(
+                    new ConsoleReporterSettings
+                    {
+                        ReportInterval = TimeSpan.FromSeconds(20),
+                    },                    
+                    new AsciiMetricPayloadBuilder());
             });
     }
 

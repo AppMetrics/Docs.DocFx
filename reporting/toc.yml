@@ -8,9 +8,15 @@
       href: prometheus.md
     - name: Graphite  
       href: graphite.md
+    - name: HTTP 
+      href: http.md
     - name: Console
       href: console.md
     - name: Text File  
       href: text-file.md
+- name: Formatting
+  items:
+    - name: Overview
+      href: formatting/index.md      
 - name: Visualizing Metrics
   href: visualization.md
