@@ -6,7 +6,7 @@ App Metrics makes it easy to get up and running with an open source monitoring s
 
 There are several TSDB reporting extensions which App Metrics provides. Head over the to [reporting documentation](../reporting/index.md) to see what's available. If you can't find what you're looking for, [open a new github issue](https://github.com/alhardy/AppMetrics.Reporters/issues/new) to discuss adding support.
 
-Out-of-box App Metrics doesn't provide a visualization tool, instead it includes some [generic Grafana dashbaords](visualization-grafana.md) for web application monitoring, Grafana does such an amazing job at this already and supports the most popular TSBDs available.
+Out-of-box App Metrics doesn't provide a visualization tool, instead it includes some [generic Grafana dashboards](visualization-grafana.md) for web application monitoring, Grafana does such an amazing job at this already and supports the most popular TSBDs available.
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ Out-of-box App Metrics doesn't provide a visualization tool, instead it includes
 
 ## What's next
 
-- With your web application is configured, choose and configure one of the [reporters](../reporting/index.md).
+- With your web application configured, choose and configure one of the [reporters](../reporting/index.md).
 - Now you have your metrics persisted, check out the [Grafana dashboards](visualization-grafana.md) provided.
 - Start tracking your own [custom metrics](../getting-started/metric-types/overview.md) and graphing them with Grafana.
 
