@@ -20,7 +20,7 @@
       href: metric-types/counters.md
     - name: Meters
       href: metric-types/meters.md
-    - name: Histogrms
+    - name: Histograms
       href: metric-types/histograms.md
     - name: Timers
       href: metric-types/timers.md   
