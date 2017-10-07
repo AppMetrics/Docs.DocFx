@@ -1,5 +1,5 @@
 # App Metrics DocFx
-This repo contains the source code for https://alhardy.github.io/app-metrics-docs/ which is the documentation for [AppMetrics](https://github.com/alhardy/AppMetrics)
+This repo contains the source code for https://alhardy.github.io/app-metrics-docs/ which is the documentation for App Metrics 1.0
 
 ## Building
 
